@@ -9,14 +9,17 @@
     "url": "https://github.com/devdigital/utilz.git",
     "directory": "packages/merge"
   },
-  "homepage": "https://github.com/prosejs/prose/tree/master/packages/merge#readme",
+  "homepage": "https://github.com/devdigital/utilz/tree/master/packages/merge#readme",
   "scripts": {
-    "test": "echo testing with version: $npm_package_version"
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
   "peerDependencies": {}
 }
