@@ -1,0 +1,23 @@
+{
+  "name": "@utilz/deepmerge",
+  "version": "0.1.0",
+  "description": "Node deep merge utility",
+  "private": true,
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devdigital/utilz.git",
+    "directory": "packages/deepmerge"
+  },
+  "homepage": "https://github.com/devdigital/utilz/tree/master/packages/deepmerge#readme",
+  "scripts": {
+    "test": "echo testing with version: $npm_package_version"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {}
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@utilz/merge",
+  "version": "0.1.0",
+  "description": "Node merge utility",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devdigital/utilz.git",
+    "directory": "packages/merge"
+  },
+  "homepage": "https://github.com/devdigital/utilz/tree/master/packages/merge#readme",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "peerDependencies": {}
+}
