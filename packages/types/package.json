@@ -1,6 +1,6 @@
 {
   "name": "@utilz/types",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Node type utilities",
   "main": "index.js",
   "license": "MIT",
@@ -17,9 +17,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {},
   "devDependencies": {
     "jest": "^24.9.0"
-  },
-  "peerDependencies": {}
+  }
 }
