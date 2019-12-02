@@ -16,5 +16,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@utilz/types": "^0.1.1"
   }
 }
