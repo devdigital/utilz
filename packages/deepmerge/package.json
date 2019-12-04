@@ -21,12 +21,13 @@
     "access": "public"
   },
   "dependencies": {
-    "@utilz/types": "^0.1.1"
+    "@utilz/types": "^0.1.1",
+    "deepmerge": "^4.2.2"
   },
   "devDependencies": {
-    "jest": "^24.9.0",
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
-    "babel-jest": "^24.9.0"
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0"
   }
 }
