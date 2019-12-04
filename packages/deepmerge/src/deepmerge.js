@@ -1,6 +1,7 @@
 import { isObject } from '@utilz/types'
+import deepmergelib from 'deepmerge'
 
-const merge = (obj1, obj2, defaultObj = {}) => {
+const deepmerge = (obj1, obj2, defaultObj = {}) => {
   if (!obj1 && !obj2) {
     return defaultObj
   }
@@ -17,7 +18,7 @@ const merge = (obj1, obj2, defaultObj = {}) => {
     throw new Error('Must define at least one merge object.')
   }
 
-  return Object.assign({}, obj1, obj2)
+  return deepmergelib(obj1, obj2)
 }
 
-export default merge
+export default deepmerge

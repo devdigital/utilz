@@ -1,4 +1,4 @@
-const isBoolean = require('./is-boolean')
+import { isBoolean } from './is-boolean'
 
 describe('isBoolean', () => {
   it('returns false for undefined', () => {

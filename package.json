@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "commit": "./node_modules/cz-customizable/standalone.js",
-    "test": ":lerna run test",
+    "test": "lerna run test",
     "clean": "lerna clean",
     "bootstrap": "lerna bootstrap",
     "prepare": "lerna run prepare",
@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "cz-customizable": "^6.2.0",
-    "lerna": "^3.18.5"
+    "lerna": "^3.19.0",
+    "microbundle": "^0.11.0"
   }
 }

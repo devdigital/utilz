@@ -2,8 +2,8 @@
   "name": "@utilz/merge",
   "version": "0.1.5",
   "description": "Node merge utility",
-  "main": "umd/index.js",
-  "module": "esm/index.js",
+  "main": "dist/merge.js",
+  "module": "dist/merge.esm.js",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -12,7 +12,8 @@
   },
   "homepage": "https://github.com/devdigital/utilz/tree/master/packages/merge#readme",
   "scripts": {
-    "prepare": "rollup --config",
+    "prepare": "microbundle --no-compress -o dist",
+    "watch": "microbundle watch --no-compress -o dist",
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
@@ -24,11 +25,10 @@
     "access": "public"
   },
   "devDependencies": {
-    "jest": "^24.9.0",
-    "rollup": "^1.27.8",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^5.1.2"
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0"
   },
   "gitHead": "fd9c9876a53d5cd4ef6a4fe0deb6e97ae34461cf",
   "dependencies": {

@@ -1,4 +1,4 @@
-const isFunction = require('./is-function')
+import { isFunction } from './is-function'
 
 describe('isFunction', () => {
   it('returns false for undefined', () => {

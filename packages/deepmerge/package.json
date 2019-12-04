@@ -2,8 +2,8 @@
   "name": "@utilz/deepmerge",
   "version": "0.1.2",
   "description": "Node deep merge utility",
-  "private": true,
-  "main": "index.js",
+  "main": "dist/deepmerge.js",
+  "module": "dist/deepmerge.esm.js",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -12,12 +12,22 @@
   },
   "homepage": "https://github.com/devdigital/utilz/tree/master/packages/deepmerge#readme",
   "scripts": {
-    "test": "echo testing with version: $npm_package_version"
+    "prepare": "microbundle --no-compress -o dist",
+    "watch": "microbundle watch --no-compress -o dist",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@utilz/types": "^0.1.1"
+    "@utilz/types": "^0.1.1",
+    "deepmerge": "^4.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0"
   }
 }
