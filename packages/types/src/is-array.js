@@ -1,3 +1,1 @@
-const isArray = v => Array.isArray(v)
-
-module.exports = isArray
+export const isArray = v => Array.isArray(v)

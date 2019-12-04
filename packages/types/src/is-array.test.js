@@ -1,4 +1,4 @@
-const isArray = require('./is-array')
+import { isArray } from './is-array'
 
 describe('isArray', () => {
   it('returns false for undefined', () => {

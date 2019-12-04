@@ -1,4 +1,4 @@
-const { isObject } = require('@utilz/types')
+import { isObject } from '@utilz/types'
 
 const merge = (obj1, obj2, defaultObj = {}) => {
   if (!obj1 && !obj2) {
@@ -20,4 +20,4 @@ const merge = (obj1, obj2, defaultObj = {}) => {
   return Object.assign({}, obj1, obj2)
 }
 
-module.exports = merge
+export default merge

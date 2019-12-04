@@ -1,4 +1,4 @@
-const merge = require('./merge')
+import merge from './merge'
 
 describe('merge', () => {
   it('returns default empty object if inputs are undefined', () => {

@@ -1,4 +1,4 @@
-const isObject = require('./is-object')
+import { isObject } from './is-object'
 
 describe('isObject', () => {
   it('returns false for undefined', () => {
