@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.2...@utilz/types@0.1.3) (2019-12-05)
+
+
+### Features
+
+* **types:** add is-string ([#4](https://github.com/devdigital/utilz/issues/4)) ([efe4b56](https://github.com/devdigital/utilz/commit/efe4b56f9a6e7760ec5cc8a2e01b3b8e43cdb2cc))
+
+
+
+
+
 ## [0.1.2](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.1...@utilz/types@0.1.2) (2019-12-04)
 
 
