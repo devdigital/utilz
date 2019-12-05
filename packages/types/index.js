@@ -1,11 +1,5 @@
-const isArray = require('./src/is-array')
-const isBoolean = require('./src/is-boolean')
-const isFunction = require('./src/is-function')
-const isObject = require('./src/is-object')
-
-module.exports = {
-  isArray,
-  isBoolean,
-  isFunction,
-  isObject,
-}
+export { isArray } from './src/is-array'
+export { isBoolean } from './src/is-boolean'
+export { isFunction } from './src/is-function'
+export { isObject } from './src/is-object'
+export { isString } from './src/is-string'
