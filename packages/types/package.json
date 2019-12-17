@@ -1,6 +1,6 @@
 {
   "name": "@utilz/types",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Node type utilities",
   "main": "dist/types.js",
   "module": "dist/types.esm.js",

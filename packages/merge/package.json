@@ -1,6 +1,6 @@
 {
   "name": "@utilz/merge",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Node merge utility",
   "main": "dist/merge.js",
   "module": "dist/merge.esm.js",
@@ -32,6 +32,6 @@
   },
   "gitHead": "fd9c9876a53d5cd4ef6a4fe0deb6e97ae34461cf",
   "dependencies": {
-    "@utilz/types": "^0.1.6"
+    "@utilz/types": "^0.1.7"
   }
 }

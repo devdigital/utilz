@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.6...@utilz/types@0.1.7) (2019-12-17)
+
+
+### Features
+
+* add is-numeric ([#8](https://github.com/devdigital/utilz/issues/8)) ([7877736](https://github.com/devdigital/utilz/commit/7877736906601f074e0889af4c6566814d0ffb09))
+
+
+
+
+
 ## [0.1.6](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.5...@utilz/types@0.1.6) (2019-12-05)
 
 **Note:** Version bump only for package @utilz/types
