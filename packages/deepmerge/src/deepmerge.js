@@ -1,24 +1,21 @@
 import { isObject } from '@utilz/types'
 import deepmergelib from 'deepmerge'
 
-const deepmerge = (obj1, obj2, defaultObj = {}) => {
-  if (!obj1 && !obj2) {
-    return defaultObj
+export const config = conf => (...params) => {
+  const isValid = val => val === undefined || val === null || isObject(val)
+
+  if (params.some(p => !isValid(p))) {
+    throw new Error(
+      'All merge parameters are expected to be objects, null, or undefined.'
+    )
   }
 
-  if (isObject(obj1) && !obj2) {
-    return obj1
-  }
-
-  if (!obj1 && isObject(obj2)) {
-    return obj2
-  }
-
-  if (!isObject(obj1) || !isObject(obj2)) {
-    throw new Error('Must define at least one merge object.')
-  }
-
-  return deepmergelib(obj1, obj2)
+  return deepmergelib.all(
+    params.map(p => p || {}),
+    conf
+  )
 }
+
+const deepmerge = (...params) => config()(...params)
 
 export default deepmerge
