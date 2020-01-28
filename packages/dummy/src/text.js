@@ -54,39 +54,26 @@ export const range = (start, end) => {
   }
 }
 
-export const words = options => {
-  return deepmerge(options, { type: 'word' })
-}
+export const words = options => deepmerge(options, { type: 'word' })
 
-export const sentences = numberOrOptions => {
-  if (isNumeric(numberOrOptions)) {
-    return {
-      type: 'sentence',
-      number: numberOrOptions,
-      data: {
-        wordsMin: 4,
-        wordsMax: 16,
-      },
-    }
-  }
+export const sentences = options =>
+  deepmerge({ data: { wordMin: 4, wordsMax: 16 } }, options, {
+    type: 'sentence',
+  })
 
-  throw new Error('options not yet supported')
-}
-
-export const paragraphs = numberOrOptions => {
-  if (isNumeric(numberOrOptions)) {
-    return {
-      type: 'paragraph',
-      number: numberOrOptions,
+export const paragraphs = options =>
+  deepmerge(
+    {
       data: {
         wordsMin: 4,
         wordsMax: 16,
         sentencesMin: 4,
         sentencesMax: 8,
       },
-    }
-  }
-}
+    },
+    options,
+    { type: 'paragraph' }
+  )
 
 export const lorem = combine => {
   const config = {
@@ -117,9 +104,9 @@ export const lorem = combine => {
 
 export const asString = (separator = ' ') => items => items.join(separator)
 
-const text = config => request => {
+const config = conf => request => {
   const { type, number, data } = request
-  const { word, sentence, paragraph, combine } = config
+  const { word, sentence, paragraph, combine } = conf
 
   const funcs = {
     word,
@@ -134,5 +121,7 @@ const text = config => request => {
   const items = arrayRange(1, number).map(i => funcs[type]({ index: i, data }))
   return combine(items)
 }
+
+const text = config(lorem())
 
 export default text
