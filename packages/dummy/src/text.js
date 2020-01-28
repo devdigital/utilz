@@ -2,24 +2,60 @@ import deepmerge from '@utilz/deepmerge'
 import { LoremIpsum } from 'lorem-ipsum'
 import { isNumeric } from '@utilz/types'
 
-const range = (start, end) =>
+const arrayRange = (start, end) =>
   Array(end - start + 1)
     .fill()
     .map((_, i) => start + i)
 
-// TODO: these helpers should take a param that can either be a number or object
-// if number, then thats the exact amount, if object then get start and end etc.
-export const words = numberOrOptions => {
-  if (isNumeric(numberOrOptions)) {
-    return {
-      type: 'word',
-      number: numberOrOptions,
-    }
+const randomInRange = (start, end) =>
+  Math.round(Math.random() * (end - start) + start)
+
+export const fixed = number => {
+  if (!number) {
+    throw new Error('Fixed requires a number.')
   }
 
-  // TODO: if end specified, validate, then generate random value between range (inclusive)
-  // TODO: add @utilz/random package with e.g. number, range etc. functions
-  throw new Error('options not yet supported')
+  if (!isNumeric(number)) {
+    throw new Error('Fixed requires a valid number.')
+  }
+
+  return {
+    number,
+  }
+}
+
+export const range = (start, end) => {
+  if (!start) {
+    throw new Error('Range requires a start number.')
+  }
+
+  if (!isNumeric(start)) {
+    throw new Error('Range requires a valid start number.')
+  }
+
+  if (!end) {
+    throw new Error('Range requires an end number.')
+  }
+
+  if (!isNumeric(end)) {
+    throw new Error('Range requires a valid end number.')
+  }
+
+  if (start < 1) {
+    throw new Error('Range start must be one or greater.')
+  }
+
+  if (end < start) {
+    throw new Error('Range end must be equal or greater than start.')
+  }
+
+  return {
+    number: randomInRange(start, end),
+  }
+}
+
+export const words = options => {
+  return deepmerge(options, { type: 'word' })
 }
 
 export const sentences = numberOrOptions => {
@@ -76,7 +112,6 @@ export const lorem = combine => {
     combine: items => items,
   }
 
-  console.log(combine)
   return combine ? deepmerge(config, { combine }) : config
 }
 
@@ -96,7 +131,7 @@ const text = config => request => {
     throw new Error(`Unknown request type '${type}'.`)
   }
 
-  const items = range(1, number).map(i => funcs[type]({ index: i, data }))
+  const items = arrayRange(1, number).map(i => funcs[type]({ index: i, data }))
   return combine(items)
 }
 
