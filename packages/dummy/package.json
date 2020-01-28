@@ -1,0 +1,35 @@
+{
+  "name": "@utilz/dummy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Dummy content generator",
+  "main": "dist/dummy.js",
+  "module": "dist/dummy.esm.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devdigital/utilz.git",
+    "directory": "packages/dummy"
+  },
+  "homepage": "https://github.com/devdigital/utilz/tree/master/packages/dummy#readme",
+  "scripts": {
+    "prepare": "microbundle --no-compress -o dist",
+    "watch": "microbundle watch --no-compress -o dist",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@utilz/deepmerge": "^0.1.8",
+    "@utilz/types": "^0.1.7",
+    "lorem-ipsum": "^2.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0"
+  }
+}
