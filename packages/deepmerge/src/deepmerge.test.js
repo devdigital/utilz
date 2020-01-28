@@ -19,15 +19,21 @@ describe('deepmerge', () => {
     expect(deepmerge(null, null, { foo: 'bar' })).toEqual({ foo: 'bar' })
   })
 
-  it('throws exception if input one is a string', () => {
+  it('returns merged objects for multiple inputs', () => {
+    expect(
+      deepmerge(null, null, { foo: 'bar' }, null, {}, { foo: 'baz' })
+    ).toEqual({ foo: 'baz' })
+  })
+
+  it('throws exception if first input is a string', () => {
     expect(() => deepmerge('foo', null)).toThrow(
-      'Must define at least one merge object.'
+      'All merge parameters are expected to be objects, null, or undefined.'
     )
   })
 
-  it('throws exception if input two is a string', () => {
+  it('throws exception if second input is a string', () => {
     expect(() => deepmerge({}, 'foo')).toThrow(
-      'Must define at least one merge object.'
+      'All merge parameters are expected to be objects, null, or undefined.'
     )
   })
 
@@ -53,5 +59,18 @@ describe('deepmerge', () => {
         foo: { bar: 'baz', baz: 'bar' },
       }
     )
+  })
+
+  it('does perform deep merge on multiple parameters', () => {
+    expect(
+      deepmerge(
+        { foo: { bar: 'baz' } },
+        { foo: { baz: 'bar' } },
+        { baz: 'foo' }
+      )
+    ).toEqual({
+      foo: { bar: 'baz', baz: 'bar' },
+      baz: 'foo',
+    })
   })
 })
