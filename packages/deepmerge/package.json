@@ -1,6 +1,6 @@
 {
   "name": "@utilz/deepmerge",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Node deep merge utility",
   "main": "dist/deepmerge.js",
   "module": "dist/deepmerge.esm.js",

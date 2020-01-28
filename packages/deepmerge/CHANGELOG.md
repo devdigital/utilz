@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.9](https://github.com/devdigital/utilz/compare/@utilz/deepmerge@0.1.8...@utilz/deepmerge@0.1.9) (2020-01-28)
+
+
+### Features
+
+* **deepmerge:** add multiple param support ([#9](https://github.com/devdigital/utilz/issues/9)) ([655cbcb](https://github.com/devdigital/utilz/commit/655cbcbfd9556c371b4744c2301d022b45ba4f59))
+
+
+
+
+
 ## [0.1.8](https://github.com/devdigital/utilz/compare/@utilz/deepmerge@0.1.7...@utilz/deepmerge@0.1.8) (2019-12-17)
 
 **Note:** Version bump only for package @utilz/deepmerge
