@@ -27,7 +27,7 @@ describe('text', () => {
 
   it('should join generated content as a string', () => {
     const number = 3
-    const t = config(lorem(asString()))
+    const t = config(asString()(lorem()))
     const result = t(words(fixed(number)))
     expect(isString(result)).toBeTruthy()
   })

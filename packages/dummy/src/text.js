@@ -75,8 +75,8 @@ export const paragraphs = options =>
     { type: 'paragraph' }
   )
 
-export const lorem = combine => {
-  const config = {
+export const lorem = () => {
+  return {
     word: () => new LoremIpsum().generateWords(1),
     sentence: ({ data }) =>
       new LoremIpsum({
@@ -98,11 +98,11 @@ export const lorem = combine => {
       }).generateParagraphs(1),
     combine: items => items,
   }
-
-  return combine ? deepmerge(config, { combine }) : config
 }
 
-export const asString = (separator = ' ') => items => items.join(separator)
+export const asString = (separator = ' ') => config => {
+  return deepmerge(config, { combine: items => items.join(separator) })
+}
 
 export const config = conf => request => {
   const { type, number, data } = request
