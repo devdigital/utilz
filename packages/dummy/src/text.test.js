@@ -17,13 +17,11 @@ describe('text', () => {
 
   it('should generate expected number of sentences', () => {
     const number = 5
-    const generator = text(lorem())
     expect(text(sentences(fixed(number))).length).toBe(number)
   })
 
   it('should generate expected number of paragraphs', () => {
     const number = 5
-    const generator = text(lorem())
     expect(text(paragraphs(fixed(number))).length).toBe(number)
   })
 

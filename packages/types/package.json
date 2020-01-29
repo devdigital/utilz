@@ -2,8 +2,9 @@
   "name": "@utilz/types",
   "version": "0.1.7",
   "description": "Node type utilities",
+  "source": "src/index.js",
   "main": "dist/types.js",
-  "module": "dist/types.esm.js",
+  "module": "dist/types.mjs",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -21,6 +22,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^25.1.0"
   }
 }

@@ -1,6 +1,6 @@
 import { isObject } from '@utilz/types'
 
-const merge = (obj1, obj2, defaultObj = {}) => {
+export const merge = (obj1, obj2, defaultObj = {}) => {
   if (!obj1 && !obj2) {
     return defaultObj
   }
@@ -19,5 +19,3 @@ const merge = (obj1, obj2, defaultObj = {}) => {
 
   return Object.assign({}, obj1, obj2)
 }
-
-export default merge

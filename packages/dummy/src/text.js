@@ -1,4 +1,4 @@
-import deepmerge from '@utilz/deepmerge'
+import { deepmerge } from '@utilz/deepmerge'
 import { LoremIpsum } from 'lorem-ipsum'
 import { isNumeric } from '@utilz/types'
 
@@ -57,7 +57,7 @@ export const range = (start, end) => {
 export const words = options => deepmerge(options, { type: 'word' })
 
 export const sentences = options =>
-  deepmerge({ data: { wordMin: 4, wordsMax: 16 } }, options, {
+  deepmerge({ data: { wordsMin: 4, wordsMax: 16 } }, options, {
     type: 'sentence',
   })
 
@@ -104,7 +104,7 @@ export const lorem = combine => {
 
 export const asString = (separator = ' ') => items => items.join(separator)
 
-const config = conf => request => {
+export const config = conf => request => {
   const { type, number, data } = request
   const { word, sentence, paragraph, combine } = conf
 

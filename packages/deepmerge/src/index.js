@@ -1,3 +1,2 @@
-import deepmerge, { config } from './deepmerge'
-export default deepmerge
-export { config }
+export * from './deepmerge'
+export * from './config'
