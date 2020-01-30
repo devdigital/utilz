@@ -1,6 +1,6 @@
 import { deepmerge } from '@utilz/deepmerge'
 import { LoremIpsum } from 'lorem-ipsum'
-import { isNumeric } from '@utilz/types'
+import { isNumeric, isObject } from '@utilz/types'
 
 const arrayRange = (start, end) =>
   Array(end - start + 1)
@@ -9,20 +9,6 @@ const arrayRange = (start, end) =>
 
 const randomInRange = (start, end) =>
   Math.round(Math.random() * (end - start) + start)
-
-export const fixed = number => {
-  if (!number) {
-    throw new Error('Fixed requires a number.')
-  }
-
-  if (!isNumeric(number)) {
-    throw new Error('Fixed requires a valid number.')
-  }
-
-  return {
-    number,
-  }
-}
 
 export const range = (start, end) => {
   if (!start) {
@@ -54,26 +40,58 @@ export const range = (start, end) => {
   }
 }
 
-export const words = options => deepmerge(options, { type: 'word' })
+const supportFixedOrRange = options => (start, end) => {
+  let number = start
 
-export const sentences = options =>
-  deepmerge({ data: { wordsMin: 4, wordsMax: 16 } }, options, {
-    type: 'sentence',
-  })
+  if (!isNumeric(start)) {
+    throw new Error('Invalid number.')
+  }
 
-export const paragraphs = options =>
-  deepmerge(
-    {
-      data: {
-        wordsMin: 4,
-        wordsMax: 16,
-        sentencesMin: 4,
-        sentencesMax: 8,
-      },
-    },
-    options,
-    { type: 'paragraph' }
+  if (end) {
+    if (!isNumeric(end)) {
+      throw new Error('Invalid number.')
+    }
+
+    if (end < start) {
+      throw new Error('End range must be equal or greater to start range.')
+    }
+
+    number = randomInRange(start, end)
+  }
+
+  return deepmerge(options, { number })
+}
+
+export const words = supportFixedOrRange({ type: 'word' })
+
+const supportOptionalOptions = (type, defaultOptions) => (
+  startOrOptions,
+  end
+) => {
+  if (isObject(startOrOptions)) {
+    return supportFixedOrRange({
+      type,
+      data: deepmerge(defaultOptions, startOrOptions),
+    })
+  }
+
+  return supportFixedOrRange({ type, data: defaultOptions })(
+    startOrOptions,
+    end
   )
+}
+
+export const sentences = supportOptionalOptions('sentence', {
+  wordsMin: 4,
+  wordsMax: 16,
+})
+
+export const paragraphs = supportOptionalOptions('paragraph', {
+  wordsMin: 4,
+  wordsMax: 16,
+  sentencesMin: 4,
+  sentencesMax: 8,
+})
 
 export const lorem = () => {
   return {
@@ -105,6 +123,14 @@ export const asString = (separator = ' ') => config => {
 }
 
 export const config = conf => request => {
+  if (!conf) {
+    throw new Error('Configuration expected.')
+  }
+
+  if (!request) {
+    throw new Error('Request expected.')
+  }
+
   const { type, number, data } = request
   const { word, sentence, paragraph, combine } = conf
 
