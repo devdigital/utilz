@@ -1,7 +1,6 @@
 {
   "name": "@utilz/dummy",
   "version": "0.1.0",
-  "private": true,
   "description": "Dummy content generator",
   "source": "src/index.js",
   "main": "dist/dummy.js",
