@@ -1,2 +1,1 @@
-import merge from './merge'
-export default merge
+export * from './merge'

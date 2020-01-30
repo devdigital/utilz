@@ -1,38 +1,35 @@
 {
-  "name": "@utilz/merge",
-  "version": "0.1.11",
-  "description": "Node merge utility",
+  "name": "@utilz/dummy",
+  "version": "0.1.0",
+  "description": "Dummy content generator",
   "source": "src/index.js",
-  "main": "dist/merge.js",
-  "module": "dist/merge.mjs",
+  "main": "dist/dummy.js",
+  "module": "dist/dummy.mjs",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/devdigital/utilz.git",
-    "directory": "packages/merge"
+    "directory": "packages/dummy"
   },
-  "homepage": "https://github.com/devdigital/utilz/tree/master/packages/merge#readme",
+  "homepage": "https://github.com/devdigital/utilz/tree/master/packages/dummy#readme",
   "scripts": {
     "prepare": "microbundle --no-compress -o dist",
     "watch": "microbundle watch --no-compress -o dist",
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
-  "files": [
-    "esm/*",
-    "umd/*"
-  ],
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@utilz/deepmerge": "^0.1.8",
+    "@utilz/types": "^0.1.7",
+    "lorem-ipsum": "^2.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "babel-jest": "^25.1.0",
     "jest": "^25.1.0"
-  },
-  "gitHead": "fd9c9876a53d5cd4ef6a4fe0deb6e97ae34461cf",
-  "dependencies": {
-    "@utilz/types": "^0.1.7"
   }
 }
