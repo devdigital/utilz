@@ -148,6 +148,4 @@ export const config = conf => request => {
   return combine(items)
 }
 
-const text = config(lorem())
-
-export default text
+export const text = config(lorem())

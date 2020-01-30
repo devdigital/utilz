@@ -1,4 +1,5 @@
-import text, {
+import {
+  text,
   words,
   sentences,
   paragraphs,
