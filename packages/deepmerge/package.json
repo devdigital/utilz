@@ -4,7 +4,7 @@
   "description": "Node deep merge utility",
   "source": "src/index.js",
   "main": "dist/deepmerge.js",
-  "module": "dist/deepmerge.mjs",
+  "module": "dist/deepmerge.esm.js",
   "license": "MIT",
   "repository": {
     "type": "git",
