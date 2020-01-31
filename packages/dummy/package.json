@@ -1,6 +1,6 @@
 {
   "name": "@utilz/dummy",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Dummy content generator",
   "source": "src/index.js",
   "main": "dist/dummy.js",
@@ -22,8 +22,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@utilz/deepmerge": "^0.1.11",
-    "@utilz/types": "^0.1.9",
+    "@utilz/deepmerge": "^0.1.12",
+    "@utilz/types": "^0.1.10",
     "lorem-ipsum": "^2.0.3"
   },
   "devDependencies": {
