@@ -4,7 +4,7 @@
   "description": "Node merge utility",
   "source": "src/index.js",
   "main": "dist/merge.js",
-  "module": "dist/merge.esm.mjs",
+  "module": "dist/merge.esm.js",
   "license": "MIT",
   "repository": {
     "type": "git",

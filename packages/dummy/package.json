@@ -4,7 +4,7 @@
   "description": "Dummy content generator",
   "source": "src/index.js",
   "main": "dist/dummy.js",
-  "module": "dist/dummy.esm.mjs",
+  "module": "dist/dummy.esm.js",
   "license": "MIT",
   "repository": {
     "type": "git",
