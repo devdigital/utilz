@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.6](https://github.com/devdigital/utilz/compare/@utilz/dummy@0.1.5...@utilz/dummy@0.1.6) (2020-02-03)
+
+
+### Features
+
+* **dummy:** add id generation ([#15](https://github.com/devdigital/utilz/issues/15)) ([757f2bb](https://github.com/devdigital/utilz/commit/757f2bb1552b6b0913daa39e14e197e176262056))
+
+
+
+
+
 ## [0.1.5](https://github.com/devdigital/utilz/compare/@utilz/dummy@0.1.4...@utilz/dummy@0.1.5) (2020-01-31)
 
 **Note:** Version bump only for package @utilz/dummy
