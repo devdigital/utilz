@@ -1,6 +1,7 @@
 import { deepmerge } from '@utilz/deepmerge'
 import { LoremIpsum } from 'lorem-ipsum'
 import { isNumeric, isObject } from '@utilz/types'
+import shortid from 'shortid'
 
 const arrayRange = (start, end) =>
   Array(end - start + 1)
@@ -132,7 +133,7 @@ export const config = conf => request => {
   }
 
   const { type, number, data } = request
-  const { word, sentence, paragraph, combine } = conf
+  const { word, sentence, paragraph, combine, map } = conf
 
   const funcs = {
     word,
@@ -145,7 +146,19 @@ export const config = conf => request => {
   }
 
   const items = arrayRange(1, number).map(i => funcs[type]({ index: i, data }))
-  return combine(items)
+  const values = combine ? combine(items) : items
+  return map ? values.map(map) : values
 }
 
-export const text = config(lorem())
+export const props = conf =>
+  deepmerge(
+    {
+      map: value => ({
+        id: shortid(),
+        children: value,
+      }),
+    },
+    conf
+  )
+
+export const text = config(props(lorem()))

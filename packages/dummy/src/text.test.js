@@ -57,4 +57,12 @@ describe('text', () => {
     const result = t(words(3))
     expect(isString(result)).toBeTruthy()
   })
+
+  it('should return id and children by default', () => {
+    const result = text(paragraphs(1))
+    expect(result.length).toBe(1)
+
+    expect(result[0]).toHaveProperty('id')
+    expect(result[0]).toHaveProperty('children')
+  })
 })
