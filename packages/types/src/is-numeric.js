@@ -1,5 +1,7 @@
+import { isNil } from './is-nil'
+
 export const isNumeric = value => {
-  if (value === null || value === undefined) {
+  if (isNil(value)) {
     return false
   }
 
