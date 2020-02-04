@@ -9,6 +9,10 @@ describe('isNumeric', () => {
     expect(isNumeric(null)).toBe(false)
   })
 
+  it('returns true for zero', () => {
+    expect(isNumeric(0)).toBe(true)
+  })
+
   it('returns false for non numeric string', () => {
     expect(isNumeric('foo')).toBe(false)
   })

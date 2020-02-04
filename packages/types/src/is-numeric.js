@@ -1,5 +1,5 @@
 export const isNumeric = value => {
-  if (!value) {
+  if (value === null || value === undefined) {
     return false
   }
 
