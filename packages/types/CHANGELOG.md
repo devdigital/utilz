@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.11](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.10...@utilz/types@0.1.11) (2020-02-04)
+
+
+### Bug Fixes
+
+* **types:** add fix for is numeric zero ([#16](https://github.com/devdigital/utilz/issues/16)) ([95703d2](https://github.com/devdigital/utilz/commit/95703d21c80e73fc5f88d98e56de955b9df54117))
+
+
+### Features
+
+* **types:** add isNil ([#17](https://github.com/devdigital/utilz/issues/17)) ([e70991c](https://github.com/devdigital/utilz/commit/e70991c1b9e17ff3df597f3b3a44711c7cbb562b))
+
+
+
+
+
 ## [0.1.10](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.9...@utilz/types@0.1.10) (2020-01-31)
 
 **Note:** Version bump only for package @utilz/types

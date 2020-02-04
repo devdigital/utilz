@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.13](https://github.com/devdigital/utilz/compare/@utilz/deepmerge@0.1.12...@utilz/deepmerge@0.1.13) (2020-02-04)
+
+**Note:** Version bump only for package @utilz/deepmerge
+
+
+
+
+
 ## [0.1.12](https://github.com/devdigital/utilz/compare/@utilz/deepmerge@0.1.11...@utilz/deepmerge@0.1.12) (2020-01-31)
 
 **Note:** Version bump only for package @utilz/deepmerge
