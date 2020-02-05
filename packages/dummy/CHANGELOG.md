@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.8](https://github.com/devdigital/utilz/compare/@utilz/dummy@0.1.7...@utilz/dummy@0.1.8) (2020-02-05)
+
+
+### Features
+
+* **dummy:** add text react ([#18](https://github.com/devdigital/utilz/issues/18)) ([7854b99](https://github.com/devdigital/utilz/commit/7854b99de9185faae279c9e72708d983199de347))
+
+
+
+
+
 ## [0.1.7](https://github.com/devdigital/utilz/compare/@utilz/dummy@0.1.6...@utilz/dummy@0.1.7) (2020-02-04)
 
 **Note:** Version bump only for package @utilz/dummy
