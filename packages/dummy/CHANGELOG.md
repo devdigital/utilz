@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.9](https://github.com/devdigital/utilz/compare/@utilz/dummy@0.1.8...@utilz/dummy@0.1.9) (2020-05-09)
+
+
+### Bug Fixes
+
+* use lorumipsum function ([#20](https://github.com/devdigital/utilz/issues/20)) ([3f9e1af](https://github.com/devdigital/utilz/commit/3f9e1af76f5da4fed80ccba404684f21f5169ec9))
+
+
+
+
+
 ## [0.1.8](https://github.com/devdigital/utilz/compare/@utilz/dummy@0.1.7...@utilz/dummy@0.1.8) (2020-02-05)
 
 
