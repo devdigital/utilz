@@ -1,26 +1,24 @@
-import { LoremIpsum } from 'lorem-ipsum'
+import { loremIpsum } from 'lorem-ipsum'
 
 export const lorem = () => {
   return {
-    word: () => new LoremIpsum().generateWords(1),
+    word: () => loremIpsum({ unit: 'word', count: 1 }),
     sentence: ({ data }) =>
-      new LoremIpsum({
-        wordsPerSentence: {
-          min: data.wordsMin,
-          max: data.wordsMax,
-        },
-      }).generateSentences(1),
+      loremIpsum({
+        unit: 'sentence',
+        count: 1,
+        sentenceLowerBound: data.wordsMin,
+        sentenceUpperBound: data.wordsMax,
+      }),
     paragraph: ({ data }) =>
-      new LoremIpsum({
-        wordsPerSentence: {
-          min: data.wordsMin,
-          max: data.wordsMax,
-        },
-        sentencesPerParagraph: {
-          min: data.sentencesMin,
-          max: data.sentencesMax,
-        },
-      }).generateParagraphs(1),
-    combine: items => items,
+      loremIpsum({
+        unit: 'paragraph',
+        count: 1,
+        sentenceLowerBound: data.wordsMin,
+        sentenceUpperBound: data.wordsMax,
+        paragraphLowerBound: data.sentencesMin,
+        paragraphUpperBound: data.sentencesMax,
+      }),
+    combine: (items) => items,
   }
 }
