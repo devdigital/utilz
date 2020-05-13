@@ -1,0 +1,31 @@
+{
+  "name": "@utilz/get",
+  "version": "0.1.0",
+  "description": "Retreive object properties.",
+  "source": "src/index.js",
+  "main": "dist/get.js",
+  "module": "dist/get.esm.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devdigital/utilz.git",
+    "directory": "packages/get"
+  },
+  "homepage": "https://github.com/devdigital/utilz/tree/master/packages/get#readme",
+  "scripts": {
+    "prepare": "microbundle --no-compress -o dist",
+    "watch": "microbundle watch --no-compress -o dist",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-jest": "^25.1.0",
+    "jest": "^25.1.0"
+  }
+}
