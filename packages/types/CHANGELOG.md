@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.12](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.11...@utilz/types@0.1.12) (2020-06-01)
+
+
+### Features
+
+* add numeric ([#22](https://github.com/devdigital/utilz/issues/22)) ([4be62a4](https://github.com/devdigital/utilz/commit/4be62a4d66f6d4cdfbee067bad5733c533e93ee7))
+
+
+
+
+
 ## [0.1.11](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.10...@utilz/types@0.1.11) (2020-02-04)
 
 
