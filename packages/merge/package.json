@@ -26,10 +26,10 @@
     "access": "public"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "babel-jest": "^25.1.0",
-    "jest": "^25.1.0"
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1"
   },
   "gitHead": "fd9c9876a53d5cd4ef6a4fe0deb6e97ae34461cf",
   "dependencies": {
