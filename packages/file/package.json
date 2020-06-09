@@ -1,6 +1,6 @@
 {
   "name": "@utilz/file",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Basic file utilities.",
   "source": "src/index.js",
   "main": "dist/file.js",
@@ -28,8 +28,8 @@
     "jest": "^26.0.1"
   },
   "dependencies": {
-    "@utilz/deepmerge": "^0.1.14",
-    "@utilz/types": "^0.1.12",
+    "@utilz/deepmerge": "^0.1.15",
+    "@utilz/types": "^0.1.13",
     "fs-extra": "^9.0.1"
   }
 }

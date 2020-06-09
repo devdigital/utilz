@@ -1,6 +1,6 @@
 {
   "name": "@utilz/types",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Node type utilities",
   "source": "src/index.js",
   "main": "dist/types.js",
