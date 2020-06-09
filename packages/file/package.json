@@ -1,0 +1,35 @@
+{
+  "name": "@utilz/file",
+  "version": "0.1.0",
+  "description": "Basic file utilities.",
+  "source": "src/index.js",
+  "main": "dist/file.js",
+  "module": "dist/file.esm.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devdigital/utilz.git",
+    "directory": "packages/file"
+  },
+  "homepage": "https://github.com/devdigital/utilz/tree/master/packages/file#readme",
+  "scripts": {
+    "prepare": "microbundle --no-compress -o dist",
+    "watch": "microbundle watch --no-compress -o dist",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1"
+  },
+  "dependencies": {
+    "@utilz/deepmerge": "^0.1.14",
+    "@utilz/types": "^0.1.12",
+    "fs-extra": "^9.0.1"
+  }
+}
