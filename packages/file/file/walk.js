@@ -2,10 +2,9 @@ import path from 'path'
 import fs from 'fs-extra'
 import { isNil } from '@utilz/types'
 import { deepmerge } from '@utilz/deepmerge'
+import { all } from './all'
 
 const { readdir, stat } = fs
-
-export const all = () => true
 
 export const configureWalk = (options) => (predicate = all) => async (
   startPath,
