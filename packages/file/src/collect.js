@@ -1,13 +1,15 @@
 import { configureWalk } from './walk'
 
-export const configureCollect = (options) => (predicate) => async (
-  startPath
-) => {
+export const configureCollect = (baseOptions) => async (startPath, options) => {
   const items = []
 
-  await configureWalk(options)(predicate)(startPath, async (itemDetails) => {
-    items.push(itemDetails)
-  })
+  await configureWalk(baseOptions)(
+    startPath,
+    async (itemDetails) => {
+      items.push(itemDetails)
+    },
+    options
+  )
 
   return items
 }

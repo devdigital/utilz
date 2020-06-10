@@ -6,9 +6,10 @@ import { all } from './all'
 
 const { readdir, stat } = fs
 
-export const configureWalk = (options) => (predicate = all) => async (
+export const configureWalk = (baseOptions) => async (
   startPath,
-  callback
+  callback,
+  options
 ) => {
   if (isNil(startPath)) {
     throw new Error(`No path specified.`)
@@ -19,18 +20,23 @@ export const configureWalk = (options) => (predicate = all) => async (
   }
 
   const defaultOptions = {
-    descendants: true,
+    includeDescendants: true,
+    filter: all,
   }
 
-  const { descendants } = deepmerge(defaultOptions, options)
+  const { includeDescendants, filter } = deepmerge(
+    defaultOptions,
+    baseOptions,
+    options
+  )
 
   const items = await readdir(startPath)
   for await (const item of items) {
     const itemPath = path.resolve(startPath, item)
     const itemStats = await stat(itemPath)
 
-    if (itemStats.isDirectory() && descendants) {
-      await configureWalk(options)(predicate)(itemPath, callback)
+    if (itemStats.isDirectory() && includeDescendants) {
+      await configureWalk(options)(itemPath, callback, options)
     }
 
     const itemDetails = {
@@ -39,7 +45,7 @@ export const configureWalk = (options) => (predicate = all) => async (
       stats: itemStats,
     }
 
-    if (await predicate(itemDetails)) {
+    if (await filter(itemDetails)) {
       await callback(itemDetails)
     }
   }

@@ -7,7 +7,7 @@ describe('walk', () => {
   it('should return expected files and folders', async () => {
     const names = []
 
-    await walk()(path.resolve(__dirname, './test'), async ({ name }) => {
+    await walk(path.resolve(__dirname, './test'), async ({ name }) => {
       names.push(name)
     })
 
@@ -26,10 +26,13 @@ describe('walk', () => {
   it('should return files only', async () => {
     const names = []
 
-    await walk(ext('.js'))(
+    await walk(
       path.resolve(__dirname, './test'),
       async ({ name }) => {
         names.push(name)
+      },
+      {
+        filter: ext('.js'),
       }
     )
 
@@ -39,24 +42,26 @@ describe('walk', () => {
   it('should return files only as array', async () => {
     const names = []
 
-    await walk(ext(['.js']))(
+    await walk(
       path.resolve(__dirname, './test'),
       async ({ name }) => {
         names.push(name)
-      }
+      },
+      { filter: ext(['.js']) }
     )
 
     expect(names).toEqual(['1.js', '2.js', '1.js', '2.js', '1.js', '2.js'])
   })
 
-  it('should return files based on custom predicate', async () => {
+  it('should return files based on custom filter', async () => {
     const names = []
 
-    await walk(({ name }) => name === '2.js')(
+    await walk(
       path.resolve(__dirname, './test'),
       async ({ name }) => {
         names.push(name)
-      }
+      },
+      { filter: ({ name }) => name === '2.js' }
     )
 
     expect(names).toEqual(['2.js', '2.js', '2.js'])
