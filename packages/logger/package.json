@@ -1,0 +1,36 @@
+{
+  "name": "@utilz/logger",
+  "version": "0.1.0",
+  "description": "Basic logger.",
+  "source": "src/index.js",
+  "main": "dist/logger.js",
+  "module": "dist/logger.esm.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devdigital/utilz.git",
+    "directory": "packages/logger"
+  },
+  "homepage": "https://github.com/devdigital/utilz/tree/master/packages/logger#readme",
+  "scripts": {
+    "prepare": "microbundle --no-compress -o dist",
+    "watch": "microbundle watch --no-compress -o dist",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1",
+    "mockdate": "^3.0.2"
+  },
+  "dependencies": {
+    "@utilz/deepmerge": "^0.1.15",
+    "@utilz/types": "^0.1.13",
+    "util": "^0.12.3"
+  }
+}
