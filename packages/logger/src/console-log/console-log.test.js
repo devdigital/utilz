@@ -1,7 +1,12 @@
 import chalk from 'chalk'
 import MockDate from 'mockdate'
 import { LogLevel, createLogger } from '../logger'
-import { defaultColorMap, consoleLog, consoleFormat } from './console-log'
+import {
+  defaultColorMap,
+  consoleLog,
+  consoleFormat,
+  shortTime,
+} from './console-log'
 
 describe('createConsoleLogger', () => {
   it('should write expected log level', () => {
@@ -12,6 +17,52 @@ describe('createConsoleLogger', () => {
     console.log = jest.fn()
     logger.info('message')
     expect(console.log).toHaveBeenCalledWith('INFO: message')
+  })
+
+  it('should not write trace log level by default', () => {
+    const logger = createLogger({
+      log: consoleLog(),
+    })
+
+    console.log = jest.fn()
+    logger.trace('message')
+    expect(console.log).not.toHaveBeenCalled()
+  })
+
+  it('should not write debug log level by default', () => {
+    const logger = createLogger({
+      log: consoleLog(),
+    })
+
+    console.log = jest.fn()
+    logger.debug('message')
+    expect(console.log).not.toHaveBeenCalled()
+  })
+
+  it('should write trace color', () => {
+    const logger = createLogger({
+      level: LogLevel.TRACE,
+      log: consoleLog(),
+    })
+
+    console.log = jest.fn()
+    logger.trace('message')
+    expect(console.log).toHaveBeenCalledWith(
+      chalk.hex(defaultColorMap[LogLevel.TRACE])('TRACE: message')
+    )
+  })
+
+  it('should write debug color', () => {
+    const logger = createLogger({
+      level: LogLevel.DEBUG,
+      log: consoleLog(),
+    })
+
+    console.log = jest.fn()
+    logger.debug('message')
+    expect(console.log).toHaveBeenCalledWith(
+      chalk.hex(defaultColorMap[LogLevel.DEBUG])('DEBUG: message')
+    )
   })
 
   it('should write warn color', () => {
@@ -117,13 +168,12 @@ describe('createConsoleLogger', () => {
   })
 
   it('should include timestamp', () => {
-    const date = '2000-01-01'
-    MockDate.set(new Date(date))
+    MockDate.set(new Date('2000-01-01'))
 
     const logger = createLogger({
       log: consoleLog({
         format: consoleFormat({
-          timestamp: (date) => date.getDate(),
+          timestamp: shortTime,
         }),
       }),
     })
@@ -135,7 +185,7 @@ describe('createConsoleLogger', () => {
     MockDate.reset()
 
     expect(console.log).toHaveBeenCalledWith(
-      chalk.hex(defaultColorMap[LogLevel.ERROR])(`1: ERROR: message`)
+      chalk.hex(defaultColorMap[LogLevel.ERROR])(`00:00:00: ERROR: message`)
     )
   })
 

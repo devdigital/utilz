@@ -10,6 +10,7 @@ const isEmptyObject = (obj) =>
 const isPopulatedObject = (obj) => isObject(obj) && !isEmptyObject(obj)
 
 export const defaultColorMap = {
+  [LogLevel.TRACE]: '#4d4d4d',
   [LogLevel.DEBUG]: '#636363',
   [LogLevel.WARN]: '#fff200',
   [LogLevel.ERROR]: '#ff2414',
@@ -61,10 +62,6 @@ export const consoleLog = (options = {}) => ({
     throw new Error('No colors map provided.')
   }
 
-  if (level === LogLevel.DEBUG && !process.env.SLS_DEBUG) {
-    return
-  }
-
   const msg = format({ level, message, params, error })
 
   if (Object.prototype.hasOwnProperty.call(colors, level)) {
@@ -74,3 +71,6 @@ export const consoleLog = (options = {}) => ({
 
   write(msg)
 }
+
+export const shortTime = (date) =>
+  date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1')

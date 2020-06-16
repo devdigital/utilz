@@ -3,6 +3,7 @@ import { defaultLog } from './default-log'
 import { LogLevel } from './log-level'
 
 const logLevels = {
+  [LogLevel.TRACE]: 10,
   [LogLevel.DEBUG]: 20,
   [LogLevel.INFO]: 30,
   [LogLevel.WARN]: 40,
@@ -62,6 +63,7 @@ export const createLogger = (opts) => {
 
   return {
     log,
+    trace: (message, params) => log(LogLevel.TRACE, message, params),
     debug: (message, params) => log(LogLevel.DEBUG, message, params),
     info: (message, params) => log(LogLevel.INFO, message, params),
     warn: (message, params, error) =>
