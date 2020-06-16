@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/devdigital/utilz/compare/@utilz/logger@0.1.1...@utilz/logger@0.1.2) (2020-06-16)
+
+
+### Bug Fixes
+
+* add chalk dep ([#26](https://github.com/devdigital/utilz/issues/26)) ([f269717](https://github.com/devdigital/utilz/commit/f269717fd772369d2827d1eb49a16e0383b7e764))
+
+
+
+
+
 ## 0.1.1 (2020-06-16)
 
 
