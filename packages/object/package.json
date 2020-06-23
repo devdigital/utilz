@@ -1,6 +1,6 @@
 {
   "name": "@utilz/object",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Object utilities",
   "source": "src/index.js",
   "main": "dist/object.js",
