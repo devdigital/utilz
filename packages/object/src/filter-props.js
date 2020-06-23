@@ -14,21 +14,19 @@ export const filterProps = (predicate) => (obj) => {
     throw new Error('No object specified.')
   }
 
-  const result = {}
-
-  Object.keys(obj).forEach((p) => {
+  return Object.keys(obj).reduce((result, p) => {
     if (isObject(obj[p])) {
       const filter = filterProps(predicate)(obj[p], result[p])
       if (!isEmpty(filter)) {
         result[p] = filter
       }
-      return
+      return result
     }
 
     if (predicate(obj[p])) {
       result[p] = obj[p]
     }
-  })
 
-  return result
+    return result
+  }, {})
 }

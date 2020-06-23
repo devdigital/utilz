@@ -19,13 +19,11 @@ export const diffProps = (obj1) => (obj2) => {
     throw new Error('Second value is not a valid object.')
   }
 
-  const properties = {}
-
-  Object.keys(obj2).forEach((p) => {
+  return Object.keys(obj2).reduce((properties, p) => {
     // Object 1 does not have property
     if (!obj1.hasOwnProperty(p)) {
       properties[p] = obj2[p]
-      return
+      return properties
     }
 
     // Object 1 does have property,
@@ -35,9 +33,8 @@ export const diffProps = (obj1) => (obj2) => {
       if (!isEmpty(diff)) {
         properties[p] = diff
       }
-      return
     }
-  })
 
-  return properties
+    return properties
+  }, {})
 }

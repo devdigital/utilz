@@ -1,6 +1,6 @@
 import { isNil, isObject, isFunction } from '@utilz/types'
 
-export const setProps = (valueOrFunc) => (obj, result = {}) => {
+export const setProps = (valueOrFunc) => (obj) => {
   const func = isFunction(valueOrFunc) ? valueOrFunc : () => valueOrFunc
 
   if (isNil(obj)) {
@@ -11,14 +11,13 @@ export const setProps = (valueOrFunc) => (obj, result = {}) => {
     throw new Error('Value is not a valid object.')
   }
 
-  Object.keys(obj).forEach((key) => {
+  return Object.keys(obj).reduce((result, key) => {
     if (isObject(obj[key])) {
       result[key] = setProps(valueOrFunc)(obj[key], result[key])
-      return
+      return result
     }
 
     result[key] = func(key)
-  })
-
-  return result
+    return result
+  }, {})
 }
