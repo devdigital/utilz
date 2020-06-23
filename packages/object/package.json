@@ -1,0 +1,31 @@
+{
+  "name": "@utilz/object",
+  "version": "0.1.0",
+  "description": "Object utilities",
+  "source": "src/index.js",
+  "main": "dist/object.js",
+  "module": "dist/object.esm.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devdigital/utilz.git",
+    "directory": "packages/object"
+  },
+  "homepage": "https://github.com/devdigital/utilz/tree/master/packages/object#readme",
+  "scripts": {
+    "prepare": "microbundle --no-compress -o dist",
+    "watch": "microbundle watch --no-compress -o dist",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
+  },
+  "dependencies": {
+    "@utilz/types": "^0.1.13",
+    "ramda": "^0.27.0"
+  }
+}
