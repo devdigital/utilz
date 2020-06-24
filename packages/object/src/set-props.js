@@ -13,11 +13,11 @@ export const setProps = (valueOrFunc) => (obj) => {
 
   return Object.keys(obj).reduce((result, key) => {
     if (isObject(obj[key])) {
-      result[key] = setProps(valueOrFunc)(obj[key], result[key])
+      result[key] = setProps(valueOrFunc)(obj[key])
       return result
     }
 
-    result[key] = func(key)
+    result[key] = func({ key, value: obj[key] })
     return result
   }, {})
 }

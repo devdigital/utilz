@@ -40,4 +40,22 @@ describe('setProps', () => {
     setProps(0)(value)
     expect(value).toEqual({ foo: 'bar' })
   })
+
+  it('should pass key to provided function', () => {
+    const value = {
+      foo: 'bar',
+    }
+
+    expect(setProps(({ key }) => key)(value)).toEqual({ foo: 'foo' })
+  })
+
+  it('should pass value to provided function', () => {
+    const value = {
+      foo: 'bar',
+    }
+
+    expect(setProps(({ value }) => `updated-${value}`)(value)).toEqual({
+      foo: 'updated-bar',
+    })
+  })
 })
