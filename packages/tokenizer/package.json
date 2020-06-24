@@ -1,0 +1,32 @@
+{
+  "name": "@utilz/tokenizer",
+  "version": "0.1.0",
+  "description": "Token replacer.",
+  "source": "src/index.js",
+  "main": "dist/tokenizer.js",
+  "module": "dist/tokenizer.esm.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devdigital/utilz.git",
+    "directory": "packages/tokenizer"
+  },
+  "homepage": "https://github.com/devdigital/utilz/tree/master/packages/tokenizer#readme",
+  "scripts": {
+    "prepare": "microbundle --no-compress -o dist",
+    "watch": "microbundle watch --no-compress -o dist",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
+  },
+  "dependencies": {
+    "@utilz/object": "^0.1.1",
+    "@utilz/types": "^0.1.13",
+    "ramda": "^0.27.0"
+  }
+}
