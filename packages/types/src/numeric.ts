@@ -1,7 +1,13 @@
 import { isNil } from './is-nil'
 import { isNumeric } from './is-numeric'
+import { Nullable } from './index'
 
-export const numeric = (value) => {
+export interface NumericResult {
+  isValid: boolean
+  value: Nullable<number>
+}
+
+export const numeric = (value?: unknown): NumericResult => {
   const invalid = {
     isValid: false,
     value: undefined,
@@ -17,7 +23,7 @@ export const numeric = (value) => {
 
   const result = Number(value)
 
-  if (isNaN(result)) {
+  if (Number.isNaN(result)) {
     return invalid
   }
 

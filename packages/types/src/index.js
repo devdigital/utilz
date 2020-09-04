@@ -1,8 +1,0 @@
-export { isArray } from './is-array'
-export { isBoolean } from './is-boolean'
-export { isFunction } from './is-function'
-export { isObject } from './is-object'
-export { isString } from './is-string'
-export { isNumeric } from './is-numeric'
-export { isNil } from './is-nil'
-export { numeric } from './numeric'
