@@ -2,9 +2,10 @@
   "name": "@utilz/tokenizer",
   "version": "0.1.1",
   "description": "Token replacer.",
-  "source": "src/index.js",
+  "source": "src/index.ts",
   "main": "dist/tokenizer.js",
   "module": "dist/tokenizer.esm.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",

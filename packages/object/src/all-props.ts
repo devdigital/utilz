@@ -1,8 +1,9 @@
-import filter from 'ramda/src/filter'
-import isEmpty from 'ramda/src/isEmpty'
-import { isObject } from '@utilz/types'
+import { filter, isEmpty } from 'ramda'
+import { isObject, Predicate, IndexableObject } from '@utilz/types'
 
-export const allProps = (predicate) => (obj) => {
+export const allProps = (predicate: Predicate<IndexableObject>) => (
+  obj: IndexableObject
+): boolean => {
   if (!predicate) {
     throw new Error('No predicate specified.')
   }

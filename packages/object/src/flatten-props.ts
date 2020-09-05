@@ -1,8 +1,17 @@
-import { isNil, isObject } from '@utilz/types'
+import { isNil, isObject, IndexableObject, Nullable } from '@utilz/types'
+
+export interface PathValue {
+  path: string
+  value: any
+}
 
 // takes nested object and flattens to paths
 // { foo: { bar: 'value' }} => [ path: 'foo.bar', value: 'value' ]
-export const flattenProps = (obj, path = null, result = []) => {
+export const flattenProps = (
+  obj: IndexableObject,
+  path?: Nullable<string>,
+  result: PathValue[] = []
+) => {
   if (isNil(obj)) {
     throw new Error('No object specified.')
   }

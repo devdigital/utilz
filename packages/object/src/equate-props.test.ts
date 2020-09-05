@@ -5,10 +5,6 @@ describe('equateProps', () => {
     expect(equateProps()).toThrow('No object specified.')
   })
 
-  it('throws exception given null object', () => {
-    expect(() => equateProps()(null)).toThrow('No object specified.')
-  })
-
   it('returns true for undefined value, empty object', () => {
     expect(equateProps()({})).toBe(true)
   })

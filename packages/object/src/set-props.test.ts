@@ -5,10 +5,6 @@ describe('setProps', () => {
     expect(setProps()).toThrow('No object specified.')
   })
 
-  it('throws exception given null object', () => {
-    expect(() => setProps()(null)).toThrow('No object specified.')
-  })
-
   it('returns empty object given empty object', () => {
     expect(setProps()({})).toEqual({})
   })
@@ -46,7 +42,9 @@ describe('setProps', () => {
       foo: 'bar',
     }
 
-    expect(setProps(({ key }) => key)(value)).toEqual({ foo: 'foo' })
+    expect(setProps(({ key }: { key: any }) => key)(value)).toEqual({
+      foo: 'foo',
+    })
   })
 
   it('should pass value to provided function', () => {
@@ -54,7 +52,9 @@ describe('setProps', () => {
       foo: 'bar',
     }
 
-    expect(setProps(({ value }) => `updated-${value}`)(value)).toEqual({
+    expect(
+      setProps(({ value }: { value: any }) => `updated-${value}`)(value)
+    ).toEqual({
       foo: 'updated-bar',
     })
   })

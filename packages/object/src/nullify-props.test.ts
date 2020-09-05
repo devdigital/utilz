@@ -1,18 +1,6 @@
 import { nullifyProps } from './nullify-props'
 
 describe('nullifyProps', () => {
-  it('throws exception given undefined', () => {
-    expect(nullifyProps).toThrow('No object specified.')
-  })
-
-  it('throws exception given null', () => {
-    expect(() => nullifyProps(null)).toThrow('No object specified.')
-  })
-
-  it('throws exception given non object', () => {
-    expect(() => nullifyProps(0)).toThrow('Value is not a valid object.')
-  })
-
   it('returns {} for empty object', () => {
     expect(nullifyProps({})).toEqual({})
   })

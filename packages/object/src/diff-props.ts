@@ -1,8 +1,8 @@
-import isEmpty from 'ramda/src/isEmpty'
-import { isNil, isObject } from '@utilz/types'
+import { isEmpty } from 'ramda'
+import { isNil, isObject, IndexableObject } from '@utilz/types'
 
 // return all properties in obj2, not in obj1
-export const diffProps = (obj1) => (obj2) => {
+export const diffProps = (obj1: IndexableObject) => (obj2: IndexableObject) => {
   if (isNil(obj1)) {
     throw new Error('No first object specified.')
   }
@@ -19,7 +19,7 @@ export const diffProps = (obj1) => (obj2) => {
     throw new Error('Second value is not a valid object.')
   }
 
-  return Object.keys(obj2).reduce((properties, p) => {
+  return Object.keys(obj2).reduce((properties: IndexableObject, p) => {
     // Object 1 does not have property
     if (!obj1.hasOwnProperty(p)) {
       properties[p] = obj2[p]

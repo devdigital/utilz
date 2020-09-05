@@ -1,16 +1,9 @@
 import { flattenProps } from './flatten-props'
+import { IndexableObject } from '@utilz/types'
 
 describe('flattenProps', () => {
   it('throws an exception given undefinied', () => {
     expect(flattenProps).toThrow('No object specified.')
-  })
-
-  it('throws an exception given null', () => {
-    expect(() => flattenProps(null)).toThrow('No object specified.')
-  })
-
-  it('throws an exception given non object', () => {
-    expect(() => flattenProps(0)).toThrow('Value is not a valid object.')
   })
 
   it('returns empty array given empty object', () => {

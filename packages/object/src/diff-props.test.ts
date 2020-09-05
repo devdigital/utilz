@@ -1,32 +1,6 @@
 import { diffProps } from './diff-props'
 
 describe('diffProps', () => {
-  it('throws exception given undefined first object', () => {
-    expect(diffProps()).toThrow('No first object specified.')
-  })
-
-  it('throws exception given null first object', () => {
-    expect(diffProps(null)).toThrow('No first object specified.')
-  })
-
-  it('throws exception given non object first object', () => {
-    expect(diffProps(0)).toThrow('First value is not a valid object.')
-  })
-
-  it('throws exception given undefined second object', () => {
-    expect(() => diffProps({})()).toThrow('No second object specified.')
-  })
-
-  it('throws exception given null second object', () => {
-    expect(() => diffProps({})(null)).toThrow('No second object specified.')
-  })
-
-  it('throws exception given non object second object', () => {
-    expect(() => diffProps({})(0)).toThrow(
-      'Second value is not a valid object.'
-    )
-  })
-
   it('returns empty object for equivalent objects', () => {
     expect(diffProps({ foo: 'bar' })({ foo: 'bar' })).toEqual({})
   })
