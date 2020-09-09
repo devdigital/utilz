@@ -1,4 +1,26 @@
-export const get = (obj, key, fallback, notfound, index, undef) => {
+import { Nullable, IndexableObject } from '@utilz/types'
+
+export interface FallbackProps {
+  obj: unknown
+  key: string | string[]
+  keyArray: string[]
+}
+
+export interface NotFoundProps {
+  message: string
+  obj: unknown
+  key: string | string[]
+  keyArray: string[]
+}
+
+export const get = (
+  obj: Record<string, unknown>,
+  key: string | string[],
+  fallback?: (props: FallbackProps) => unknown,
+  notfound?: (props: NotFoundProps) => void,
+  index?: number,
+  undef?: undefined
+) => {
   if (!obj) {
     throw new Error('No object provided.')
   }
@@ -7,8 +29,8 @@ export const get = (obj, key, fallback, notfound, index, undef) => {
     throw new Error('No key provided.')
   }
 
-  const keyArray = key.split ? key.split('.') : key
-  let currentObj = obj
+  const keyArray = Array.isArray(key) ? key : key.split('.')
+  let currentObj: Nullable<IndexableObject> = obj
 
   for (index = 0; index < keyArray.length; index++) {
     if (currentObj && currentObj.hasOwnProperty(keyArray[index])) {

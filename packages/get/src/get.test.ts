@@ -1,14 +1,6 @@
 import { get } from './get'
 
 describe('get', () => {
-  it('should throw provided no object', () => {
-    expect(() => get()).toThrow('No object provided.')
-  })
-
-  it('should throw provided no key', () => {
-    expect(() => get({})).toThrow('No key provided.')
-  })
-
   it('should return undefined for key that is not present', () => {
     expect(get({}, 'foo')).toEqual(undefined)
   })
