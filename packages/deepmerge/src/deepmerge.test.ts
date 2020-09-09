@@ -25,18 +25,6 @@ describe('deepmerge', () => {
     ).toEqual({ foo: 'baz' })
   })
 
-  it('throws exception if first input is a string', () => {
-    expect(() => deepmerge('foo', null)).toThrow(
-      'All merge parameters are expected to be objects, null, or undefined.'
-    )
-  })
-
-  it('throws exception if second input is a string', () => {
-    expect(() => deepmerge({}, 'foo')).toThrow(
-      'All merge parameters are expected to be objects, null, or undefined.'
-    )
-  })
-
   it('returns object one if input two is undefined', () => {
     expect(deepmerge({ foo: 'bar' })).toEqual({ foo: 'bar' })
   })

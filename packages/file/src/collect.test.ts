@@ -50,7 +50,7 @@ describe('collect', () => {
 
   it('should return files based on custom filter', async () => {
     const items = await collect(path.resolve(__dirname, './test'), {
-      filter: ({ name }) => name === '2.js',
+      filter: async ({ name }) => name === '2.js',
     })
 
     expect(items.map(({ name }) => name)).toEqual(['2.js', '2.js', '2.js'])

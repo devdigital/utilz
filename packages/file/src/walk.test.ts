@@ -5,7 +5,7 @@ import { ext } from './ext'
 // TODO: mock file system
 describe('walk', () => {
   it('should return expected files and folders', async () => {
-    const names = []
+    const names: string[] = []
 
     await walk(path.resolve(__dirname, './test'), async ({ name }) => {
       names.push(name)
@@ -24,7 +24,7 @@ describe('walk', () => {
   })
 
   it('should return files only', async () => {
-    const names = []
+    const names: string[] = []
 
     await walk(
       path.resolve(__dirname, './test'),
@@ -40,7 +40,7 @@ describe('walk', () => {
   })
 
   it('should return files only as array', async () => {
-    const names = []
+    const names: string[] = []
 
     await walk(
       path.resolve(__dirname, './test'),
@@ -54,14 +54,14 @@ describe('walk', () => {
   })
 
   it('should return files based on custom filter', async () => {
-    const names = []
+    const names: string[] = []
 
     await walk(
       path.resolve(__dirname, './test'),
       async ({ name }) => {
         names.push(name)
       },
-      { filter: ({ name }) => name === '2.js' }
+      { filter: async ({ name }) => name === '2.js' }
     )
 
     expect(names).toEqual(['2.js', '2.js', '2.js'])
