@@ -37,7 +37,7 @@ const arrayRange = (start: number, end: number): number[] =>
 const randomInRange = (start: number, end: number): number =>
   Math.round(Math.random() * (end - start) + start)
 
-const supportFixedOrRange = (options: Partial<Request>) => (
+const supportFixedOrRange = (baseRequest: Partial<Request>) => (
   start: number,
   end?: number
 ): Request => {
@@ -59,69 +59,48 @@ const supportFixedOrRange = (options: Partial<Request>) => (
     number = randomInRange(start, end)
   }
 
-  return deepmerge(options, { number })
+  return deepmerge(baseRequest, { number })
 }
 
-export const words: (
-  start: number,
-  end?: number
-) => Request = supportFixedOrRange({ type: 'word' })
-
-const isStart = (val: number | Object): val is number => {
-  return isNumber(val)
-}
-
-type StartOrOptions = number | RequestOptions
-
-// type Foo = ((start: number, end?: number) => Request) | Request
-
-function supportOptionalOptions(
+export const configureBase = (
   type: LoremType,
-  defaultOptions: RequestOptions
-): (start: number, end?: number) => Request
-function supportOptionalOptions(
-  type: LoremType,
-  defaultOptions: RequestOptions
-): (requestOptions: RequestOptions) => (start: number, end?: number) => Request
-function supportOptionalOptions(
-  type: LoremType,
-  defaultOptions: RequestOptions
-) {
-  return function (startOrOptions: StartOrOptions, end?: number) {
-    if (isStart(startOrOptions)) {
-      return supportFixedOrRange({ type, options: defaultOptions })(
-        startOrOptions,
-        end
-      )
-    }
-
-    return supportFixedOrRange({
-      type,
-      options: deepmerge<RequestOptions>(defaultOptions, startOrOptions),
-    })
-  }
-}
-
-// return {
-//   type: 'word',
-//   number: 1,
-//   options: { wordsMin: 4, wordsMax: 10 },
-// }
-
-export function sentences(startOrOptions: StartOrOptions, end?: number): (start: number, end?: number) => Request 
-export function sentences(requestOptions: RequestOptions): (start: number, end?: number) => Request
-export function sentences(startOrOptions: StartOrOptions, end?: number) {
-  return supportOptionalOptions('sentence', {
-    wordsMin: 4,
-    wordsMax: 16
+  baseOptions: Partial<RequestOptions>
+) => (options: Partial<RequestOptions>) =>
+  supportFixedOrRange({
+    type,
+    options: deepmerge<RequestOptions>(baseOptions, options),
   })
-}
 
-export const paragraphs = supportOptionalOptions('paragraph', {
+export const configureSentences = configureBase('sentence', {
+  wordsMin: 4,
+  wordsMax: 16,
+})
+
+export const configureParagraphs = configureBase('paragraph', {
   wordsMin: 4,
   wordsMax: 16,
   sentencesMin: 4,
   sentencesMax: 8,
+})
+
+export const words = supportFixedOrRange({ type: 'word' })
+
+export const sentences = supportFixedOrRange({
+  type: 'sentence',
+  options: {
+    wordsMin: 4,
+    wordsMax: 16,
+  },
+})
+
+export const paragraphs = supportFixedOrRange({
+  type: 'paragraph',
+  options: {
+    wordsMin: 4,
+    wordsMax: 16,
+    sentencesMin: 4,
+    sentencesMax: 8,
+  },
 })
 
 export const asString = (separator = ' ') => (

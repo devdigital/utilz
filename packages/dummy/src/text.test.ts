@@ -2,7 +2,9 @@ import {
   text,
   words,
   sentences,
+  configureSentences,
   paragraphs,
+  configureParagraphs,
   lorem,
   asString,
   config,
@@ -32,7 +34,9 @@ describe('text', () => {
 
   it('should support sentence options', () => {
     const number = 5
-    expect(text(sentences({ wordsMin: 1 })(number)).length).toBe(number)
+    expect(text(configureSentences({ wordsMin: 1 })(number)).length).toBe(
+      number
+    )
   })
 
   it('should generate expected number of fixed paragraphs', () => {
@@ -48,7 +52,8 @@ describe('text', () => {
   it('should support paragraph options', () => {
     const number = 5
     expect(
-      text(paragraphs({ wordsMin: 1, sentencesMax: 100 })(number)).length
+      text(configureParagraphs({ wordsMin: 1, sentencesMax: 100 })(number))
+        .length
     ).toBe(number)
   })
 
