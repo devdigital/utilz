@@ -2,7 +2,9 @@ import { isEmpty } from 'ramda'
 import { isNil, isObject, IndexableObject } from '@utilz/types'
 
 // return all properties in obj2, not in obj1
-export const diffProps = (obj1: IndexableObject) => (obj2: IndexableObject) => {
+export const diffProps = (obj1: IndexableObject<any>) => (
+  obj2: IndexableObject<any>
+) => {
   if (isNil(obj1)) {
     throw new Error('No first object specified.')
   }

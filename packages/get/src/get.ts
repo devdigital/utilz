@@ -30,7 +30,7 @@ export const get = (
   }
 
   const keyArray = Array.isArray(key) ? key : key.split('.')
-  let currentObj: Nullable<IndexableObject> = obj
+  let currentObj: Nullable<IndexableObject<any>> = obj
 
   for (index = 0; index < keyArray.length; index++) {
     if (currentObj && currentObj.hasOwnProperty(keyArray[index])) {

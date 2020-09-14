@@ -8,7 +8,7 @@ export interface PathValue {
 // takes nested object and flattens to paths
 // { foo: { bar: 'value' }} => [ path: 'foo.bar', value: 'value' ]
 export const flattenProps = (
-  obj: IndexableObject,
+  obj: IndexableObject<any>,
   path?: Nullable<string>,
   result: PathValue[] = []
 ) => {

@@ -1,4 +1,4 @@
-import { isObject, Object, Nullable } from '@utilz/types'
+import { isObject, Nullable } from '@utilz/types'
 import deepmergelib from 'deepmerge'
 
 export const config = (conf?: Object) => <T extends Object>(

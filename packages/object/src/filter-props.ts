@@ -2,7 +2,7 @@ import { isEmpty } from 'ramda'
 import { isObject, isFunction, Predicate, IndexableObject } from '@utilz/types'
 
 export const filterProps = (predicate: Predicate<IndexableObject>) => (
-  obj: IndexableObject
+  obj: IndexableObject<any>
 ) => {
   if (!predicate) {
     throw new Error('No predicate specified.')

@@ -1,6 +1,6 @@
 import { isNil, isObject, isFunction, IndexableObject } from '@utilz/types'
 
-export const setProps = (valueOrFunc?: any) => (obj: IndexableObject) => {
+export const setProps = (valueOrFunc?: any) => (obj: IndexableObject<any>) => {
   const func = isFunction(valueOrFunc) ? valueOrFunc : () => valueOrFunc
 
   if (isNil(obj)) {
@@ -11,7 +11,7 @@ export const setProps = (valueOrFunc?: any) => (obj: IndexableObject) => {
     throw new Error('Value is not a valid object.')
   }
 
-  return Object.keys(obj).reduce((result: IndexableObject, key) => {
+  return Object.keys(obj).reduce((result: IndexableObject<any>, key) => {
     if (isObject(obj[key])) {
       result[key] = setProps(valueOrFunc)(obj[key])
       return result
