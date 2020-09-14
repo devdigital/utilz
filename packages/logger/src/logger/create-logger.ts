@@ -1,7 +1,7 @@
 import { deepmerge } from '@utilz/deepmerge'
+import { Nullable, IndexableObject } from '@utilz/types'
 import { defaultLog } from './default-log'
-import { LogLevel } from './log-level'
-import { IndexableObject } from '@utilz/types'
+import { LogLevel, LoggerOptions } from './types'
 
 const logLevels: IndexableObject<number> = {
   [LogLevel.TRACE]: 10,
@@ -11,7 +11,7 @@ const logLevels: IndexableObject<number> = {
   [LogLevel.ERROR]: 50,
 }
 
-const ensureValidLogLevel = (levelName: string) => {
+const ensureValidLogLevel = (levelName: LogLevel) => {
   if (!logLevels[levelName]) {
     throw new Error(
       `Invalid log level '${levelName}', expected one of ${Object.keys(
@@ -21,32 +21,19 @@ const ensureValidLogLevel = (levelName: string) => {
   }
 }
 
-export interface LogParameters {
-  level: string
-  message: string
-  params: Object
-  error: Error
-}
-
-export interface LoggerOptions {
-  level?: LogLevel
-  context?: Object
-  log?: (parameters: LogParameters) => void
-}
-
 export const createLogger = (opts: LoggerOptions) => {
   const defaultLevel = LogLevel.INFO
 
-  const defaultOptions = {
+  const defaultOptions: LoggerOptions = {
     level: defaultLevel,
     context: {},
     log: defaultLog,
   }
 
-  const options = deepmerge(defaultOptions, opts)
+  const options = deepmerge<LoggerOptions>(defaultOptions, opts)
   let currentLevelName = options.level
 
-  ensureValidLogLevel(currentLevelName)
+  ensureValidLogLevel(currentLevelName!)
 
   const enabled = (levelName: string) => {
     const level = logLevels[levelName]
@@ -54,14 +41,14 @@ export const createLogger = (opts: LoggerOptions) => {
       return false
     }
 
-    return level >= (logLevels[currentLevelName] || defaultLevel)
+    return level >= (logLevels[currentLevelName!] || defaultLevel)
   }
 
   const log = (
-    levelName: string,
+    levelName: LogLevel,
     message: string,
-    params: unknown,
-    error?: unknown
+    params: Nullable<Error | Object>,
+    error?: Nullable<Error>
   ) => {
     ensureValidLogLevel(levelName)
 
@@ -75,27 +62,27 @@ export const createLogger = (opts: LoggerOptions) => {
       level: levelName,
       message,
       params: paramsIsError ? undefined : params,
-      error: paramsIsError ? params : error,
+      error: paramsIsError ? (params as Error) : error,
       context: options.context,
     })
   }
 
   return {
     log,
-    trace: (message: string, params?: unknown) =>
+    trace: (message: string, params?: Object) =>
       log(LogLevel.TRACE, message, params),
-    debug: (message: string, params?: unknown) =>
+    debug: (message: string, params?: Object) =>
       log(LogLevel.DEBUG, message, params),
-    info: (message: string, params?: unknown) =>
+    info: (message: string, params?: Object) =>
       log(LogLevel.INFO, message, params),
-    warn: (message: string, params?: unknown, error?: unknown) =>
+    warn: (message: string, params?: Error | Object, error?: Error) =>
       log(LogLevel.WARN, message, params, error),
-    error: (message: string, params?: unknown, error?: unknown) =>
+    error: (message: string, params?: Error | Object, error?: Error) =>
       log(LogLevel.ERROR, message, params, error),
-    setLevel: (levelName: string) => {
+    setLevel: (levelName: LogLevel) => {
       ensureValidLogLevel(levelName)
       currentLevelName = levelName
     },
-    getLevel: (): string => currentLevelName,
+    getLevel: (): LogLevel => currentLevelName!,
   }
 }

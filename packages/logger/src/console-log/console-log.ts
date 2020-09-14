@@ -1,14 +1,14 @@
 import chalk from 'chalk'
 import util from 'util'
 import { deepmerge } from '@utilz/deepmerge'
-import { isNil, isFunction, isObject } from '@utilz/types'
-import { LogLevel } from '../logger'
-import { LogParameters } from '../logger/default-log'
+import { isNil, isFunction, isObject, Nullable } from '@utilz/types'
+import { LogLevel, LogParameters } from '../logger/types'
 
 const isEmptyObject = (obj: Object) =>
   Object.keys(obj).length === 0 && obj.constructor === Object
 
-const isPopulatedObject = (obj: Object) => isObject(obj) && !isEmptyObject(obj)
+const isPopulatedObject = (obj: Nullable<Object>) =>
+  isObject(obj) && !isEmptyObject(obj!)
 
 export const defaultColorMap = {
   [LogLevel.TRACE]: '#4d4d4d',

@@ -1,5 +1,5 @@
 import { deepmerge } from '@utilz/deepmerge'
-import { isNumber, isNumeric } from '@utilz/types'
+import { isNumeric } from '@utilz/types'
 
 export interface RequestOptions {
   wordsMin: number
@@ -62,7 +62,7 @@ const supportFixedOrRange = (baseRequest: Partial<Request>) => (
   return deepmerge(baseRequest, { number })
 }
 
-export const configureBase = (
+const configureBase = (
   type: LoremType,
   baseOptions: Partial<RequestOptions>
 ) => (options: Partial<RequestOptions>) =>
@@ -111,7 +111,7 @@ export const asString = (separator = ' ') => (
   })
 }
 
-export const config = (conf: Configuration) => (request: Request) => {
+export const configure = (conf: Configuration) => (request: Request) => {
   if (!conf) {
     throw new Error('Configuration expected.')
   }

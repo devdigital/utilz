@@ -7,7 +7,7 @@ import {
   configureParagraphs,
   lorem,
   asString,
-  config,
+  configure,
 } from './index'
 import { isString } from '@utilz/types'
 
@@ -58,7 +58,7 @@ describe('text', () => {
   })
 
   it('should join generated content as a string', () => {
-    const t = config(asString()(lorem()))
+    const t = configure(asString()(lorem()))
     const result = t(words(3))
     expect(isString(result)).toBeTruthy()
   })

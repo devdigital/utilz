@@ -1,7 +1,7 @@
 import { isObject, Nullable } from '@utilz/types'
 import deepmergelib from 'deepmerge'
 
-export const config = (conf?: Object) => <T extends Object>(
+export const configure = (conf?: Object) => <T extends Object>(
   ...params: Nullable<Object>[]
 ): T => {
   const isValid = (val: unknown) =>

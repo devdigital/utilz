@@ -1,16 +1,10 @@
+import { LogParameters } from './types'
+
 const errorToParams = (error: Error) => ({
   errorName: error.name,
   errorMessage: error.message,
   stackTrace: error.stack,
 })
-
-export interface LogParameters {
-  level: string
-  message: string
-  params: Object
-  error: Error
-  context: Object
-}
 
 export const defaultLog = ({
   level,

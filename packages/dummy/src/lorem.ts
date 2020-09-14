@@ -1,5 +1,5 @@
 import { loremIpsum } from 'lorem-ipsum'
-import { Configuration, RequestOptions } from './config'
+import { Configuration, RequestOptions } from './configure'
 
 export const lorem = (): Configuration => {
   return {

@@ -192,7 +192,7 @@ describe('createConsoleLogger', () => {
   it('should allow write to be overridden', () => {
     const logger = createLogger({
       log: consoleLog({
-        write: (message) => console.log(`overridden: ${message}`),
+        write: (message: string) => console.log(`overridden: ${message}`),
       }),
     })
 

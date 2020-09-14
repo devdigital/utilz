@@ -1,4 +1,4 @@
-import { config } from './config'
+import { configure } from './configure'
 import { lorem } from './lorem'
 
-export const text = config(lorem())
+export const text = configure(lorem())
