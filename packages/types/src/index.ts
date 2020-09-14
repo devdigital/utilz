@@ -1,6 +1,5 @@
 export * from './indexable-object'
 export * from './nullable'
-export * from './object'
 export * from './predicate'
 export * from './is-array'
 export * from './is-boolean'

@@ -1,10 +1,24 @@
-const errorToParams = (error) => ({
+const errorToParams = (error: Error) => ({
   errorName: error.name,
   errorMessage: error.message,
   stackTrace: error.stack,
 })
 
-export const defaultLog = ({ level, message, params, error, context }) => {
+export interface LogParameters {
+  level: string
+  message: string
+  params: Object
+  error: Error
+  context: Object
+}
+
+export const defaultLog = ({
+  level,
+  message,
+  params,
+  error,
+  context,
+}: LogParameters) => {
   const parameters = error
     ? {
         ...(params || {}),

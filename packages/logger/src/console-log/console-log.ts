@@ -3,11 +3,12 @@ import util from 'util'
 import { deepmerge } from '@utilz/deepmerge'
 import { isNil, isFunction, isObject } from '@utilz/types'
 import { LogLevel } from '../logger'
+import { LogParameters } from '../logger/default-log'
 
-const isEmptyObject = (obj) =>
+const isEmptyObject = (obj: Object) =>
   Object.keys(obj).length === 0 && obj.constructor === Object
 
-const isPopulatedObject = (obj) => isObject(obj) && !isEmptyObject(obj)
+const isPopulatedObject = (obj: Object) => isObject(obj) && !isEmptyObject(obj)
 
 export const defaultColorMap = {
   [LogLevel.TRACE]: '#4d4d4d',
@@ -16,12 +17,17 @@ export const defaultColorMap = {
   [LogLevel.ERROR]: '#ff2414',
 }
 
-export const consoleFormat = (options = {}) => ({
+export interface ConsoleFormatOptions {
+  applicationName: string
+  timestamp: (date: Date) => string
+}
+
+export const consoleFormat = (options: Partial<ConsoleFormatOptions> = {}) => ({
   level,
   message,
   params,
   error,
-}) => {
+}: LogParameters) => {
   const { applicationName, timestamp } = options
 
   const parts = [
@@ -41,9 +47,9 @@ export const consoleLog = (options = {}) => ({
   message,
   params,
   error,
-}) => {
+}: LogParameters) => {
   const defaultOptions = {
-    write: (message) => console.log(message),
+    write: (message: string) => console.log(message),
     format: consoleFormat(),
     colors: defaultColorMap,
   }
@@ -72,5 +78,5 @@ export const consoleLog = (options = {}) => ({
   write(msg)
 }
 
-export const shortTime = (date) =>
+export const shortTime = (date: Date) =>
   date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1')

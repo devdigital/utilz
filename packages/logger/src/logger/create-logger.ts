@@ -1,8 +1,9 @@
 import { deepmerge } from '@utilz/deepmerge'
 import { defaultLog } from './default-log'
 import { LogLevel } from './log-level'
+import { IndexableObject } from '@utilz/types'
 
-const logLevels = {
+const logLevels: IndexableObject<number> = {
   [LogLevel.TRACE]: 10,
   [LogLevel.DEBUG]: 20,
   [LogLevel.INFO]: 30,
@@ -10,7 +11,7 @@ const logLevels = {
   [LogLevel.ERROR]: 50,
 }
 
-const ensureValidLogLevel = (levelName) => {
+const ensureValidLogLevel = (levelName: string) => {
   if (!logLevels[levelName]) {
     throw new Error(
       `Invalid log level '${levelName}', expected one of ${Object.keys(
@@ -20,7 +21,20 @@ const ensureValidLogLevel = (levelName) => {
   }
 }
 
-export const createLogger = (opts) => {
+export interface LogParameters {
+  level: string
+  message: string
+  params: Object
+  error: Error
+}
+
+export interface LoggerOptions {
+  level?: LogLevel
+  context?: Object
+  log?: (parameters: LogParameters) => void
+}
+
+export const createLogger = (opts: LoggerOptions) => {
   const defaultLevel = LogLevel.INFO
 
   const defaultOptions = {
@@ -34,7 +48,7 @@ export const createLogger = (opts) => {
 
   ensureValidLogLevel(currentLevelName)
 
-  const enabled = (levelName) => {
+  const enabled = (levelName: string) => {
     const level = logLevels[levelName]
     if (!level) {
       return false
@@ -43,7 +57,12 @@ export const createLogger = (opts) => {
     return level >= (logLevels[currentLevelName] || defaultLevel)
   }
 
-  const log = (levelName, message, params, error) => {
+  const log = (
+    levelName: string,
+    message: string,
+    params: unknown,
+    error?: unknown
+  ) => {
     ensureValidLogLevel(levelName)
 
     if (!enabled(levelName)) {
@@ -63,17 +82,20 @@ export const createLogger = (opts) => {
 
   return {
     log,
-    trace: (message, params) => log(LogLevel.TRACE, message, params),
-    debug: (message, params) => log(LogLevel.DEBUG, message, params),
-    info: (message, params) => log(LogLevel.INFO, message, params),
-    warn: (message, params, error) =>
+    trace: (message: string, params?: unknown) =>
+      log(LogLevel.TRACE, message, params),
+    debug: (message: string, params?: unknown) =>
+      log(LogLevel.DEBUG, message, params),
+    info: (message: string, params?: unknown) =>
+      log(LogLevel.INFO, message, params),
+    warn: (message: string, params?: unknown, error?: unknown) =>
       log(LogLevel.WARN, message, params, error),
-    error: (message, params, error) =>
+    error: (message: string, params?: unknown, error?: unknown) =>
       log(LogLevel.ERROR, message, params, error),
-    setLevel: (levelName) => {
+    setLevel: (levelName: string) => {
       ensureValidLogLevel(levelName)
       currentLevelName = levelName
     },
-    getLevel: () => currentLevelName,
+    getLevel: (): string => currentLevelName,
   }
 }

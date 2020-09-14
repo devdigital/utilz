@@ -1,3 +1,1 @@
-export interface IndexableObject extends Record<string, any> {
-  [x: string]: any
-}
+export type IndexableObject<T = unknown> = Record<string, T>
