@@ -2,9 +2,10 @@
   "name": "@utilz/dummy",
   "version": "0.1.11",
   "description": "Dummy content generator",
-  "source": "src/index.js",
+  "source": "src/index.ts",
   "main": "dist/dummy.js",
   "module": "dist/dummy.esm.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -30,7 +31,11 @@
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
+    "@types/jest": "^26.0.13",
+    "@types/shortid": "^0.0.29",
     "babel-jest": "^26.0.1",
-    "jest": "^26.0.1"
+    "jest": "^26.0.1",
+    "ts-jest": "^26.3.0",
+    "typescript": "^4.0.2"
   }
 }
