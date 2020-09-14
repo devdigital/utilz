@@ -1,6 +1,6 @@
 {
   "name": "@utilz/object",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Object utilities",
   "source": "src/index.ts",
   "main": "dist/object.js",
@@ -29,7 +29,7 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "@utilz/types": "^0.1.13",
+    "@utilz/types": "^0.1.14",
     "ramda": "^0.27.0"
   }
 }

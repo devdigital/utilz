@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.14](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.13...@utilz/types@0.1.14) (2020-09-14)
+
+**Note:** Version bump only for package @utilz/types
+
+
+
+
+
 ## [0.1.13](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.12...@utilz/types@0.1.13) (2020-06-09)
 
 

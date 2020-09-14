@@ -1,6 +1,6 @@
 {
   "name": "@utilz/get",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Retreive object properties.",
   "source": "src/index.ts",
   "main": "dist/get.js",
@@ -32,6 +32,6 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "@utilz/types": "^0.1.13"
+    "@utilz/types": "^0.1.14"
   }
 }

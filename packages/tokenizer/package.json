@@ -1,6 +1,6 @@
 {
   "name": "@utilz/tokenizer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Token replacer.",
   "source": "src/index.ts",
   "main": "dist/tokenizer.js",
@@ -26,8 +26,8 @@
     "jest": "^26.0.1"
   },
   "dependencies": {
-    "@utilz/object": "^0.1.2",
-    "@utilz/types": "^0.1.13",
+    "@utilz/object": "^0.1.3",
+    "@utilz/types": "^0.1.14",
     "ramda": "^0.27.0"
   }
 }
