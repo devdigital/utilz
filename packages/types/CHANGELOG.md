@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.15](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.14...@utilz/types@0.1.15) (2021-08-03)
+
+
+### Bug Fixes
+
+* update deepmerge type ([#41](https://github.com/devdigital/utilz/issues/41)) ([b5d1795](https://github.com/devdigital/utilz/commit/b5d1795426f8a640122946683bb057a9bf208c11))
+
+
+
+
+
 ## [0.1.14](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.13...@utilz/types@0.1.14) (2020-09-14)
 
 **Note:** Version bump only for package @utilz/types

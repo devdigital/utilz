@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.17](https://github.com/devdigital/utilz/compare/@utilz/deepmerge@0.1.16...@utilz/deepmerge@0.1.17) (2021-08-03)
+
+
+### Bug Fixes
+
+* update deepmerge type ([#41](https://github.com/devdigital/utilz/issues/41)) ([b5d1795](https://github.com/devdigital/utilz/commit/b5d1795426f8a640122946683bb057a9bf208c11))
+* update deepmerge types ([#42](https://github.com/devdigital/utilz/issues/42)) ([7966bb4](https://github.com/devdigital/utilz/commit/7966bb4254f5edb04c59aa87b4577e165ae6651e))
+
+
+
+
+
 ## [0.1.16](https://github.com/devdigital/utilz/compare/@utilz/deepmerge@0.1.15...@utilz/deepmerge@0.1.16) (2020-09-14)
 
 **Note:** Version bump only for package @utilz/deepmerge
