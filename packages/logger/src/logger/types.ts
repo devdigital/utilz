@@ -1,4 +1,4 @@
-import { Nullable } from '@utilz/types'
+import { Nullish } from '@utilz/types'
 
 export enum LogLevel {
   TRACE = 'TRACE',
@@ -11,9 +11,9 @@ export enum LogLevel {
 export interface LogParameters {
   level: LogLevel
   message: string
-  params: Nullable<Object>
-  error: Nullable<Error>
-  context: Nullable<Object>
+  params: Nullish<Object>
+  error: Nullish<Error>
+  context: Nullish<Object>
 }
 
 export interface LoggerOptions {

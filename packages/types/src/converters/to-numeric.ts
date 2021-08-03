@@ -1,13 +1,13 @@
-import { isNil } from './is-nil'
-import { isNumeric } from './is-numeric'
-import { Nullable } from './index'
+import { isNil } from '../checks/is-nil'
+import { isNumeric } from '../checks/is-numeric'
+import { Nullish } from '../types'
 
 export interface NumericResult {
   isValid: boolean
-  value: Nullable<number>
+  value: Nullish<number>
 }
 
-export const numeric = (value?: unknown): NumericResult => {
+export const toNumeric = (value?: unknown): NumericResult => {
   const invalid = {
     isValid: false,
     value: undefined,

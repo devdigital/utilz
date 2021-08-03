@@ -1,13 +1,13 @@
 import path from 'path'
-import { walk } from './walk'
-import { ext } from './ext'
+import { walk } from '../src/walk'
+import { ext } from '../src/ext'
 
 // TODO: mock file system
 describe('walk', () => {
   it('should return expected files and folders', async () => {
     const names: string[] = []
 
-    await walk(path.resolve(__dirname, './test'), async ({ name }) => {
+    await walk(path.resolve(__dirname, './files'), async ({ name }) => {
       names.push(name)
     })
 
@@ -27,7 +27,7 @@ describe('walk', () => {
     const names: string[] = []
 
     await walk(
-      path.resolve(__dirname, './test'),
+      path.resolve(__dirname, './files'),
       async ({ name }) => {
         names.push(name)
       },
@@ -43,7 +43,7 @@ describe('walk', () => {
     const names: string[] = []
 
     await walk(
-      path.resolve(__dirname, './test'),
+      path.resolve(__dirname, './files'),
       async ({ name }) => {
         names.push(name)
       },
@@ -57,7 +57,7 @@ describe('walk', () => {
     const names: string[] = []
 
     await walk(
-      path.resolve(__dirname, './test'),
+      path.resolve(__dirname, './files'),
       async ({ name }) => {
         names.push(name)
       },

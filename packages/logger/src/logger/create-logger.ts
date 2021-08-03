@@ -1,5 +1,5 @@
 import { deepmerge } from '@utilz/deepmerge'
-import { Nullable, IndexableObject } from '@utilz/types'
+import { Nullish, IndexableObject } from '@utilz/types'
 import { defaultLog } from './default-log'
 import { LogLevel, LoggerOptions } from './types'
 
@@ -47,8 +47,8 @@ export const createLogger = (opts: LoggerOptions) => {
   const log = (
     levelName: LogLevel,
     message: string,
-    params: Nullable<Error | Object>,
-    error?: Nullable<Error>
+    params: Nullish<Error | Object>,
+    error?: Nullish<Error>
   ) => {
     ensureValidLogLevel(levelName)
 

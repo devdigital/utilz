@@ -1,13 +1,13 @@
 import chalk from 'chalk'
 import util from 'util'
 import { deepmerge } from '@utilz/deepmerge'
-import { isNil, isFunction, isObject, Nullable } from '@utilz/types'
+import { isNil, isFunction, isObject, Nullish } from '@utilz/types'
 import { LogLevel, LogParameters } from '../logger/types'
 
 const isEmptyObject = (obj: Object) =>
   Object.keys(obj).length === 0 && obj.constructor === Object
 
-const isPopulatedObject = (obj: Nullable<Object>) =>
+const isPopulatedObject = (obj: Nullish<Object>) =>
   isObject(obj) && !isEmptyObject(obj!)
 
 export const defaultColorMap = {
@@ -22,61 +22,55 @@ export interface ConsoleFormatOptions {
   timestamp: (date: Date) => string
 }
 
-export const consoleFormat = (options: Partial<ConsoleFormatOptions> = {}) => ({
-  level,
-  message,
-  params,
-  error,
-}: LogParameters) => {
-  const { applicationName, timestamp } = options
+export const consoleFormat =
+  (options: Partial<ConsoleFormatOptions> = {}) =>
+  ({ level, message, params, error }: LogParameters) => {
+    const { applicationName, timestamp } = options
 
-  const parts = [
-    timestamp ? `${timestamp(new Date())}:` : undefined,
-    applicationName ? `${applicationName}:` : undefined,
-    level ? `${level}:` : undefined,
-    message,
-    isPopulatedObject(params) ? util.format('%j', params) : undefined,
-    error && error.toString(),
-  ].filter((v) => v)
+    const parts = [
+      timestamp ? `${timestamp(new Date())}:` : undefined,
+      applicationName ? `${applicationName}:` : undefined,
+      level ? `${level}:` : undefined,
+      message,
+      isPopulatedObject(params) ? util.format('%j', params) : undefined,
+      error && error.toString(),
+    ].filter((v) => v)
 
-  return parts.join(' ')
-}
-
-export const consoleLog = (options = {}) => ({
-  level,
-  message,
-  params,
-  error,
-}: LogParameters) => {
-  const defaultOptions = {
-    write: (message: string) => console.log(message),
-    format: consoleFormat(),
-    colors: defaultColorMap,
+    return parts.join(' ')
   }
 
-  const { write, format, colors } = deepmerge(defaultOptions, options)
+export const consoleLog =
+  (options = {}) =>
+  ({ level, message, params, error }: LogParameters) => {
+    const defaultOptions = {
+      write: (message: string) => console.log(message),
+      format: consoleFormat(),
+      colors: defaultColorMap,
+    }
 
-  if (isNil(write) || !isFunction(write)) {
-    throw new Error('No write function provided.')
+    const { write, format, colors } = deepmerge(defaultOptions, options)
+
+    if (isNil(write) || !isFunction(write)) {
+      throw new Error('No write function provided.')
+    }
+
+    if (isNil(format) || !isFunction(format)) {
+      throw new Error('No format function provided.')
+    }
+
+    if (isNil(colors) || !isObject(colors)) {
+      throw new Error('No colors map provided.')
+    }
+
+    const msg = format({ level, message, params, error })
+
+    if (Object.prototype.hasOwnProperty.call(colors, level)) {
+      write(chalk.hex(colors[level])(msg))
+      return
+    }
+
+    write(msg)
   }
-
-  if (isNil(format) || !isFunction(format)) {
-    throw new Error('No format function provided.')
-  }
-
-  if (isNil(colors) || !isObject(colors)) {
-    throw new Error('No colors map provided.')
-  }
-
-  const msg = format({ level, message, params, error })
-
-  if (Object.prototype.hasOwnProperty.call(colors, level)) {
-    write(chalk.hex(colors[level])(msg))
-    return
-  }
-
-  write(msg)
-}
 
 export const shortTime = (date: Date) =>
   date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1')

@@ -1,5 +1,6 @@
 import { configure } from './configure'
-import { Nullable } from '@utilz/types'
+import { Nullish } from '@utilz/types'
 
-export const deepmerge = <T extends Object>(...params: Nullable<Object>[]): T =>
-  configure()(...params)
+export const deepmerge = <T extends Record<string, unknown>>(
+  ...params: Nullish<Record<string, unknown>>[]
+): T => configure()(...params)
