@@ -1,4 +1,4 @@
-import { Nullable, IndexableObject } from '@utilz/types'
+import { Nullish, IndexableObject } from '@utilz/types'
 
 export interface FallbackProps {
   obj: unknown
@@ -30,7 +30,7 @@ export const get = (
   }
 
   const keyArray = Array.isArray(key) ? key : key.split('.')
-  let currentObj: Nullable<IndexableObject<any>> = obj
+  let currentObj: Nullish<IndexableObject<any>> = obj
 
   for (index = 0; index < keyArray.length; index++) {
     if (currentObj && currentObj.hasOwnProperty(keyArray[index])) {
@@ -40,9 +40,9 @@ export const get = (
 
     if (notfound) {
       notfound({
-        message: `No property '${
-          keyArray[index]
-        }' found on object at ${keyArray.slice(0, index).join('.')}.`,
+        message: `No property '${keyArray[index]}' found on object at ${keyArray
+          .slice(0, index)
+          .join('.')}.`,
         obj,
         key,
         keyArray,

@@ -1,4 +1,4 @@
-import { isNil, isObject, IndexableObject, Nullable } from '@utilz/types'
+import { isNil, isObject, IndexableObject, Nullish } from '@utilz/types'
 
 export interface PathValue {
   path: string
@@ -9,7 +9,7 @@ export interface PathValue {
 // { foo: { bar: 'value' }} => [ path: 'foo.bar', value: 'value' ]
 export const flattenProps = (
   obj: IndexableObject<any>,
-  path?: Nullable<string>,
+  path?: Nullish<string>,
   result: PathValue[] = []
 ) => {
   if (isNil(obj)) {

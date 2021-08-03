@@ -1,8 +1,8 @@
-import { isObject, Nullable } from '@utilz/types'
+import { isObject, Nullish } from '@utilz/types'
 
 export const merge = (
-  obj1?: Nullable<Object>,
-  obj2?: Nullable<Object>,
+  obj1?: Nullish<Object>,
+  obj2?: Nullish<Object>,
   defaultObj: Object = {}
 ) => {
   if (!obj1 && !obj2) {
