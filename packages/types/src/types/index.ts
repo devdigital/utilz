@@ -1,3 +1,5 @@
 export * from './indexable-object'
+export * from './maybe'
+export * from './nullable'
 export * from './nullish'
 export * from './predicate'
