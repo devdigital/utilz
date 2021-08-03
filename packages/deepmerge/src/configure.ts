@@ -2,8 +2,10 @@ import { isObject, Nullish } from '@utilz/types'
 import deepmergelib from 'deepmerge'
 
 export const configure =
-  (conf?: Object) =>
-  <T extends Object>(...params: Nullish<Object>[]): T => {
+  (conf?: Record<string, unknown>) =>
+  <T extends Record<string, unknown>>(
+    ...params: Nullish<Record<string, unknown>>[]
+  ): T => {
     const isValid = (val: unknown) =>
       val === undefined || val === null || isObject(val)
 
