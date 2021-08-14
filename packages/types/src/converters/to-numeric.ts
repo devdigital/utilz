@@ -1,14 +1,20 @@
 import { isNil } from '../checks/is-nil'
 import { isNumeric } from '../checks/is-numeric'
-import { Nullish } from '../types'
 
-export interface NumericResult {
-  isValid: boolean
-  value: Nullish<number>
+export type InvalidNumeric = {
+  isValid: false
+  value: undefined
 }
 
+export type ValidNumeric = {
+  isValid: true
+  value: number
+}
+
+export type NumericResult = InvalidNumeric | ValidNumeric
+
 export const toNumeric = (value?: unknown): NumericResult => {
-  const invalid = {
+  const invalid: InvalidNumeric = {
     isValid: false,
     value: undefined,
   }
