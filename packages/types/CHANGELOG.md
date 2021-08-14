@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.16](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.15...@utilz/types@0.1.16) (2021-08-14)
+
+
+### Bug Fixes
+
+* update numeric return type ([#44](https://github.com/devdigital/utilz/issues/44)) ([052a747](https://github.com/devdigital/utilz/commit/052a747bc8b9013c9bc68762e24bf3da22eaa920))
+
+
+
+
+
 ## [0.1.15](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.14...@utilz/types@0.1.15) (2021-08-03)
 
 

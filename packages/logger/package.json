@@ -1,6 +1,6 @@
 {
   "name": "@utilz/logger",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Basic logger.",
   "source": "src/index.ts",
   "main": "dist/logger.js",
@@ -33,8 +33,8 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "@utilz/deepmerge": "^0.1.17",
-    "@utilz/types": "^0.1.15",
+    "@utilz/deepmerge": "^0.1.18",
+    "@utilz/types": "^0.1.16",
     "chalk": "^4.1.2",
     "util": "^0.12.4"
   }
