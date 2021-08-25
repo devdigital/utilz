@@ -18,7 +18,7 @@ export interface Configuration {
   sentence: (params: LoremFuncParameters) => string
   paragraph: (params: LoremFuncParameters) => string
   combine: (items: string[]) => string[]
-  map?: (item: string) => string
+  map?: (item: string) => any
 }
 
 export type LoremType = 'word' | 'sentence' | 'paragraph'
@@ -37,39 +37,37 @@ const arrayRange = (start: number, end: number): number[] =>
 const randomInRange = (start: number, end: number): number =>
   Math.round(Math.random() * (end - start) + start)
 
-const supportFixedOrRange = (baseRequest: Partial<Request>) => (
-  start: number,
-  end?: number
-): Request => {
-  let number = start
+const supportFixedOrRange =
+  (baseRequest: Partial<Request>) =>
+  (start: number, end?: number): Request => {
+    let number = start
 
-  if (!isNumeric(start)) {
-    throw new Error('Invalid number.')
-  }
-
-  if (end) {
-    if (!isNumeric(end)) {
+    if (!isNumeric(start)) {
       throw new Error('Invalid number.')
     }
 
-    if (end < start) {
-      throw new Error('End range must be equal or greater to start range.')
+    if (end) {
+      if (!isNumeric(end)) {
+        throw new Error('Invalid number.')
+      }
+
+      if (end < start) {
+        throw new Error('End range must be equal or greater to start range.')
+      }
+
+      number = randomInRange(start, end)
     }
 
-    number = randomInRange(start, end)
+    return deepmerge(baseRequest, { number })
   }
 
-  return deepmerge(baseRequest, { number })
-}
-
-const configureBase = (
-  type: LoremType,
-  baseOptions: Partial<RequestOptions>
-) => (options: Partial<RequestOptions>) =>
-  supportFixedOrRange({
-    type,
-    options: deepmerge<RequestOptions>(baseOptions, options),
-  })
+const configureBase =
+  (type: LoremType, baseOptions: Partial<RequestOptions>) =>
+  (options: Partial<RequestOptions>) =>
+    supportFixedOrRange({
+      type,
+      options: deepmerge<RequestOptions>(baseOptions, options),
+    })
 
 export const configureSentences = configureBase('sentence', {
   wordsMin: 4,
@@ -103,13 +101,13 @@ export const paragraphs = supportFixedOrRange({
   },
 })
 
-export const asString = (separator = ' ') => (
-  config: Configuration
-): Configuration => {
-  return deepmerge(config, {
-    combine: (items: Object[]) => items.join(separator),
-  })
-}
+export const asString =
+  (separator = ' ') =>
+  (config: Configuration): Configuration => {
+    return deepmerge(config, {
+      combine: (items: Object[]) => items.join(separator),
+    })
+  }
 
 export const configure = (conf: Configuration) => (request: Request) => {
   if (!conf) {

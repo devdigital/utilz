@@ -57,6 +57,13 @@ describe('numeric', () => {
     })
   })
 
+  it('returns expected value for zero integer string', () => {
+    expect(toNumeric('0')).toEqual({
+      isValid: true,
+      value: 0,
+    })
+  })
+
   it('returns expected value for integer string', () => {
     expect(toNumeric('100')).toEqual({
       isValid: true,
