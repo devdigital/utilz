@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.17](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.16...@utilz/types@0.1.17) (2021-08-25)
+
+
+### Bug Fixes
+
+* update text react return type ([#45](https://github.com/devdigital/utilz/issues/45)) ([9a079a1](https://github.com/devdigital/utilz/commit/9a079a17940b863081d4be18c2bac6c0b4a6a093))
+
+
+
+
+
 ## [0.1.16](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.15...@utilz/types@0.1.16) (2021-08-14)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@utilz/merge",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "Node merge utility",
   "source": "src/index.ts",
   "main": "dist/merge.js",
@@ -37,6 +37,6 @@
   },
   "gitHead": "fd9c9876a53d5cd4ef6a4fe0deb6e97ae34461cf",
   "dependencies": {
-    "@utilz/types": "^0.1.16"
+    "@utilz/types": "^0.1.17"
   }
 }

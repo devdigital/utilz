@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.15](https://github.com/devdigital/utilz/compare/@utilz/dummy@0.1.14...@utilz/dummy@0.1.15) (2021-08-25)
+
+
+### Bug Fixes
+
+* update text react return type ([#45](https://github.com/devdigital/utilz/issues/45)) ([9a079a1](https://github.com/devdigital/utilz/commit/9a079a17940b863081d4be18c2bac6c0b4a6a093))
+
+
+
+
+
 ## [0.1.14](https://github.com/devdigital/utilz/compare/@utilz/dummy@0.1.13...@utilz/dummy@0.1.14) (2021-08-14)
 
 **Note:** Version bump only for package @utilz/dummy
