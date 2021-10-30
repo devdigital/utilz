@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.18](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.17...@utilz/types@0.1.18) (2021-10-30)
+
+
+### Bug Fixes
+
+* update is object ([#49](https://github.com/devdigital/utilz/issues/49)) ([ce52214](https://github.com/devdigital/utilz/commit/ce52214a79ec9a0996b59eb4d6bc9e883259cf6b))
+
+
+### Features
+
+* add type guards ([#48](https://github.com/devdigital/utilz/issues/48)) ([bcac625](https://github.com/devdigital/utilz/commit/bcac62549886d3c21890b62772bace32d8f8638b))
+
+
+
+
+
 ## [0.1.17](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.16...@utilz/types@0.1.17) (2021-08-25)
 
 
