@@ -1,6 +1,6 @@
 {
   "name": "@utilz/deepmerge",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "description": "Node deep merge utility",
   "source": "src/index.ts",
   "main": "dist/deepmerge.js",
@@ -23,7 +23,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@utilz/types": "^0.1.18",
+    "@utilz/types": "^0.1.19",
     "deepmerge": "^4.2.2"
   },
   "devDependencies": {

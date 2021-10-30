@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.19](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.18...@utilz/types@0.1.19) (2021-10-30)
+
+
+### Bug Fixes
+
+* update is array ([#50](https://github.com/devdigital/utilz/issues/50)) ([539ea86](https://github.com/devdigital/utilz/commit/539ea869df230184e209037fccdc6cd4fa352b30))
+
+
+
+
+
 ## [0.1.18](https://github.com/devdigital/utilz/compare/@utilz/types@0.1.17...@utilz/types@0.1.18) (2021-10-30)
 
 
