@@ -1,2 +1,3 @@
-export const isBoolean = (value?: unknown): boolean =>
-  Object.prototype.toString.call(value) === '[object Boolean]'
+export function isBoolean(value?: unknown): value is boolean {
+  return Object.prototype.toString.call(value) === '[object Boolean]'
+}

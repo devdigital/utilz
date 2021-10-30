@@ -1,1 +1,3 @@
-export const isArray = (value?: unknown): boolean => Array.isArray(value)
+export function isArray(value?: unknown): value is [] {
+  return Array.isArray(value)
+}

@@ -2,7 +2,7 @@ import { isNumber } from './is-number'
 import { isNil } from './is-nil'
 import { isString } from './is-string'
 
-export const isNumeric = (value?: unknown): boolean => {
+export function isNumeric(value?: unknown): value is number | string {
   if (isNil(value)) {
     return false
   }
