@@ -4,14 +4,21 @@ import { ext } from '../src/ext'
 
 // TODO: mock file system
 describe('walk', () => {
+  it('should throw on non folder', async () => {
+    const startPath = path.resolve(__dirname, './files/1.js')
+    expect(walk(startPath, () => {})).rejects.toThrow(
+      `Start path '${startPath}' must be a folder.`
+    )
+  })
+
   it('should return expected files and folders', async () => {
     const names: string[] = []
 
-    await walk(path.resolve(__dirname, './files'), async ({ name }) => {
+    await walk(path.resolve(__dirname, './files'), ({ name }) => {
       names.push(name)
     })
 
-    expect(names).toEqual([
+    expect(names).toIncludeSameMembers([
       '1.js',
       '2.js',
       '1.js',
@@ -23,12 +30,28 @@ describe('walk', () => {
     ])
   })
 
+  it('should return first level of files and folders if descendants disabled', async () => {
+    const names: string[] = []
+
+    const items = await walk(
+      path.resolve(__dirname, './files'),
+      ({ name }) => {
+        names.push(name)
+      },
+      {
+        includeDescendants: false,
+      }
+    )
+
+    expect(names).toIncludeSameMembers(['1.js', '2.js', '3'])
+  })
+
   it('should return files only', async () => {
     const names: string[] = []
 
     await walk(
       path.resolve(__dirname, './files'),
-      async ({ name }) => {
+      ({ name }) => {
         names.push(name)
       },
       {
@@ -36,7 +59,14 @@ describe('walk', () => {
       }
     )
 
-    expect(names).toEqual(['1.js', '2.js', '1.js', '2.js', '1.js', '2.js'])
+    expect(names).toIncludeSameMembers([
+      '1.js',
+      '2.js',
+      '1.js',
+      '2.js',
+      '1.js',
+      '2.js',
+    ])
   })
 
   it('should return files only as array', async () => {
@@ -44,13 +74,20 @@ describe('walk', () => {
 
     await walk(
       path.resolve(__dirname, './files'),
-      async ({ name }) => {
+      ({ name }) => {
         names.push(name)
       },
       { filter: ext(['.js']) }
     )
 
-    expect(names).toEqual(['1.js', '2.js', '1.js', '2.js', '1.js', '2.js'])
+    expect(names).toIncludeSameMembers([
+      '1.js',
+      '2.js',
+      '1.js',
+      '2.js',
+      '1.js',
+      '2.js',
+    ])
   })
 
   it('should return files based on custom filter', async () => {
@@ -58,12 +95,12 @@ describe('walk', () => {
 
     await walk(
       path.resolve(__dirname, './files'),
-      async ({ name }) => {
+      ({ name }) => {
         names.push(name)
       },
-      { filter: async ({ name }) => name === '2.js' }
+      { filter: ({ name }) => name === '2.js' }
     )
 
-    expect(names).toEqual(['2.js', '2.js', '2.js'])
+    expect(names).toIncludeSameMembers(['2.js', '2.js', '2.js'])
   })
 })

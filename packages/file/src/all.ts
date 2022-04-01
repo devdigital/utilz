@@ -1,1 +1,3 @@
-export const all = () => true
+import { ItemDetails } from './walk'
+
+export const all = (_: ItemDetails) => true
