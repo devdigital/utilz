@@ -1,6 +1,6 @@
 {
   "name": "@utilz/file",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Basic file utilities.",
   "source": "src/index.ts",
   "main": "dist/file.js",

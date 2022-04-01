@@ -1,6 +1,6 @@
 {
   "name": "@utilz/tokenizer",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Token replacer.",
   "source": "src/index.ts",
   "main": "dist/tokenizer.js",

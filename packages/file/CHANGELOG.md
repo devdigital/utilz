@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.10](https://github.com/devdigital/utilz/compare/@utilz/file@0.1.9...@utilz/file@0.1.10) (2022-04-01)
+
+
+### Features
+
+* use klaw implementation for file ([#55](https://github.com/devdigital/utilz/issues/55)) ([725e306](https://github.com/devdigital/utilz/commit/725e3063436099e8b83644f8a1b69eb72c0b881d))
+
+
+
+
+
 ## [0.1.9](https://github.com/devdigital/utilz/compare/@utilz/file@0.1.8...@utilz/file@0.1.9) (2021-10-30)
 
 **Note:** Version bump only for package @utilz/file
