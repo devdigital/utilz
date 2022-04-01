@@ -21,5 +21,8 @@
     "cz-customizable": "^6.2.0",
     "lerna": "^4.0.0",
     "microbundle": "^0.13.3"
+  },
+  "dependencies": {
+    "caniuse-lite": "^1.0.30001323"
   }
 }

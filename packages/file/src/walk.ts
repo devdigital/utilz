@@ -6,25 +6,35 @@ import klaw from 'klaw'
 import through2 from 'through2'
 import { all } from './all'
 
-export interface ItemDetails {
+export type ItemDetails = {
   path: string
   name: string
   stats: fs.Stats
 }
 
-export interface WalkOptions {
-  includeDescendants: true
-  filter: (itemDetails: ItemDetails) => Promise<boolean>
+export type WalkOptions = {
+  includeDescendants: boolean
+  includeFolders: boolean
+  includeSelf: boolean
+  filter: (itemDetails: ItemDetails) => boolean
 }
 
 const excludeSelf = (itemPath: string) =>
   through2.obj(function (item, _, next) {
-    if (!itemPath === item.path) {
+    if (itemPath !== item.path) {
       this.push(item)
     }
 
     next()
   })
+
+const excludeFolders = through2.obj(function (item, _, next) {
+  if (!item.stats.isDirectory()) {
+    this.push(item)
+  }
+
+  next()
+})
 
 export const configureWalk =
   (baseOptions?: Partial<WalkOptions>) =>
@@ -41,16 +51,21 @@ export const configureWalk =
       throw new Error(`No callback specified`)
     }
 
-    const defaultOptions = {
+    const defaultOptions: WalkOptions = {
       includeDescendants: true,
+      includeFolders: true,
+      includeSelf: false,
       filter: all,
     }
 
-    const { includeDescendants, filter = (_: ItemDetails) => true } = deepmerge(
-      defaultOptions,
-      baseOptions,
-      options
-    )
+    const {
+      includeDescendants,
+      includeFolders,
+      includeSelf,
+      filter = (_: ItemDetails) => true,
+    } = deepmerge(defaultOptions, baseOptions, options)
+
+    console.log({ includeDescendants, includeFolders, includeSelf })
 
     const getName = (itemPath: string) => path.basename(itemPath)
 
@@ -71,15 +86,25 @@ export const configureWalk =
     }
 
     return new Promise<void>((resolve, reject) => {
-      klaw(startPath, { filter: mainFilter })
-        .pipe(excludeSelf(startPath))
-        .on('data', (item) =>
+      let pipeline = klaw(startPath, { filter: mainFilter })
+
+      if (!includeSelf) {
+        pipeline = pipeline.pipe(excludeSelf(startPath))
+      }
+
+      if (!includeFolders) {
+        pipeline = pipeline.pipe(excludeFolders)
+      }
+
+      pipeline
+        .on('data', (item) => {
+          console.log(item.path)
           callback({
             path: item.path,
             name: getName(item.path),
             stats: item.stats,
           })
-        )
+        })
         .on('end', () => {
           resolve()
         })
