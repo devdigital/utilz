@@ -5,12 +5,13 @@ import { ext } from '../src/ext'
 // TODO: mock file system
 describe('walk', () => {
   it('should throw on non folder', async () => {
-    expect(walk(path.resolve(__dirname, './files/1.js'), () => {})).toThrow(
-      'foo'
+    const startPath = path.resolve(__dirname, './files/1.js')
+    expect(walk(startPath, () => {})).rejects.toThrow(
+      `Start path '${startPath}' must be a folder.`
     )
   })
 
-  it.only('should return expected files and folders', async () => {
+  it('should return expected files and folders', async () => {
     const names: string[] = []
 
     await walk(path.resolve(__dirname, './files'), ({ name }) => {
@@ -27,6 +28,22 @@ describe('walk', () => {
       '4',
       '3',
     ])
+  })
+
+  it('should return first level of files and folders if descendants disabled', async () => {
+    const names: string[] = []
+
+    const items = await walk(
+      path.resolve(__dirname, './files'),
+      ({ name }) => {
+        names.push(name)
+      },
+      {
+        includeDescendants: false,
+      }
+    )
+
+    expect(names).toIncludeSameMembers(['1.js', '2.js', '3'])
   })
 
   it('should return files only', async () => {

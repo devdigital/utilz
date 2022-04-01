@@ -13,5 +13,5 @@ export const ext =
     }
 
     const exts = isStringArray(extension) ? extension : [extension]
-    return !!name && exts.some((e: string) => name.endsWith(e))
+    return !!name && exts.some((e) => name.endsWith(e))
   }

@@ -8,7 +8,6 @@ export const configureCollect =
     await configureWalk(baseOptions)(
       startPath,
       (itemDetails) => {
-        console.log(itemDetails.name)
         items.push(itemDetails)
       },
       options

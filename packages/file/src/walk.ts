@@ -12,14 +12,16 @@ export type ItemDetails = {
   stats: fs.Stats
 }
 
+export type WalkFilter = (itemDetails: ItemDetails) => boolean
+
 export type WalkOptions = {
   includeDescendants: boolean
-  includeFolders: boolean
-  includeSelf: boolean
-  filter: (itemDetails: ItemDetails) => boolean
+  filter: WalkFilter
 }
 
-const excludeSelf = (itemPath: string) =>
+const getName = (itemPath: string) => path.basename(itemPath)
+
+const excludePath = (itemPath: string) =>
   through2.obj(function (item, _, next) {
     if (itemPath !== item.path) {
       this.push(item)
@@ -28,13 +30,29 @@ const excludeSelf = (itemPath: string) =>
     next()
   })
 
-const excludeFolders = through2.obj(function (item, _, next) {
-  if (!item.stats.isDirectory()) {
-    this.push(item)
-  }
+const excludeFolders = (itemPath: string) =>
+  through2.obj(function (item, _, next) {
+    if (item.path === itemPath || !item.stats.isDirectory()) {
+      this.push(item)
+    }
 
-  next()
-})
+    next()
+  })
+
+const filterStream = (filter: WalkFilter) =>
+  through2.obj(function (item, _, next) {
+    if (
+      filter({
+        path: item.path,
+        name: getName(item.path),
+        stats: item.stats,
+      })
+    ) {
+      this.push(item)
+    }
+
+    next()
+  })
 
 export const configureWalk =
   (baseOptions?: Partial<WalkOptions>) =>
@@ -51,54 +69,26 @@ export const configureWalk =
       throw new Error(`No callback specified`)
     }
 
+    const startItem = statSync(startPath)
+    if (!startItem.isDirectory()) {
+      throw new Error(`Start path '${startPath}' must be a folder.`)
+    }
+
     const defaultOptions: WalkOptions = {
       includeDescendants: true,
-      includeFolders: true,
-      includeSelf: false,
       filter: all,
     }
 
-    const {
-      includeDescendants,
-      includeFolders,
-      includeSelf,
-      filter = (_: ItemDetails) => true,
-    } = deepmerge(defaultOptions, baseOptions, options)
-
-    console.log({ includeDescendants, includeFolders, includeSelf })
-
-    const getName = (itemPath: string) => path.basename(itemPath)
-
-    const mainFilter = (itemPath: string) => {
-      const stats = statSync(itemPath)
-
-      if (!includeDescendants) {
-        if (stats.isDirectory()) {
-          return false
-        }
-      }
-
-      return filter({
-        path: itemPath,
-        name: getName(itemPath),
-        stats,
-      })
-    }
+    const { includeDescendants, filter = (_: ItemDetails) => true } =
+      deepmerge<WalkOptions>(defaultOptions, baseOptions, options)
 
     return new Promise<void>((resolve, reject) => {
-      let pipeline = klaw(startPath, { filter: mainFilter })
-
-      if (!includeSelf) {
-        pipeline = pipeline.pipe(excludeSelf(startPath))
-      }
-
-      if (!includeFolders) {
-        pipeline = pipeline.pipe(excludeFolders)
-      }
-
-      pipeline
+      klaw(startPath, {
+        depthLimit: includeDescendants ? undefined : 0,
+      })
+        .pipe(excludePath(startPath))
+        .pipe(filterStream(filter))
         .on('data', (item) => {
-          console.log(item.path)
           callback({
             path: item.path,
             name: getName(item.path),
