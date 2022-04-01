@@ -23,11 +23,11 @@
     "access": "public"
   },
   "devDependencies": {
-    "jest": "^27.0.6"
+    "jest": "^27.5.1"
   },
   "dependencies": {
     "@utilz/object": "^0.1.8",
     "@utilz/types": "^0.1.19",
-    "ramda": "^0.27.0"
+    "ramda": "^0.28.0"
   }
 }
