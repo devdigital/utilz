@@ -27,6 +27,8 @@
     "@babel/preset-env": "^7.14.9",
     "@types/fs-extra": "^9.0.12",
     "@types/jest": "^26.0.24",
+    "@types/klaw": "^3.0.3",
+    "@types/through2": "^2.0.36",
     "babel-jest": "^27.0.6",
     "jest": "^27.0.6",
     "ts-jest": "^27.0.4",
@@ -35,6 +37,8 @@
   "dependencies": {
     "@utilz/deepmerge": "^0.1.21",
     "@utilz/types": "^0.1.19",
-    "fs-extra": "^10.0.0"
+    "fs-extra": "^10.0.0",
+    "klaw": "^4.0.1",
+    "through2": "^4.0.2"
   }
 }

@@ -4,10 +4,16 @@ import { ext } from '../src/ext'
 
 // TODO: mock file system
 describe('walk', () => {
+  it('should throw on non folder', async () => {
+    expect(walk(path.resolve(__dirname, './files/1.js'), () => {})).toThrow(
+      'foo'
+    )
+  })
+
   it('should return expected files and folders', async () => {
     const names: string[] = []
 
-    await walk(path.resolve(__dirname, './files'), async ({ name }) => {
+    await walk(path.resolve(__dirname, './files'), ({ name }) => {
       names.push(name)
     })
 
@@ -28,7 +34,7 @@ describe('walk', () => {
 
     await walk(
       path.resolve(__dirname, './files'),
-      async ({ name }) => {
+      ({ name }) => {
         names.push(name)
       },
       {
@@ -44,7 +50,7 @@ describe('walk', () => {
 
     await walk(
       path.resolve(__dirname, './files'),
-      async ({ name }) => {
+      ({ name }) => {
         names.push(name)
       },
       { filter: ext(['.js']) }
@@ -58,7 +64,7 @@ describe('walk', () => {
 
     await walk(
       path.resolve(__dirname, './files'),
-      async ({ name }) => {
+      ({ name }) => {
         names.push(name)
       },
       { filter: async ({ name }) => name === '2.js' }
