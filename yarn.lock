@@ -1257,6 +1257,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/fs-extra@npm:^11.0.4":
+  version: 11.0.4
+  resolution: "@types/fs-extra@npm:11.0.4"
+  dependencies:
+    "@types/jsonfile": "npm:*"
+    "@types/node": "npm:*"
+  checksum: 9e34f9b24ea464f3c0b18c3f8a82aefc36dc524cc720fc2b886e5465abc66486ff4e439ea3fb2c0acebf91f6d3f74e514f9983b1f02d4243706bdbb7511796ad
+  languageName: node
+  linkType: hard
+
+"@types/jsonfile@npm:*":
+  version: 6.1.4
+  resolution: "@types/jsonfile@npm:6.1.4"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: b12d068b021e4078f6ac4441353965769be87acf15326173e2aea9f3bf8ead41bd0ad29421df5bbeb0123ec3fc02eb0a734481d52903704a1454a1845896b9eb
+  languageName: node
+  linkType: hard
+
+"@types/klaw@npm:^3.0.6":
+  version: 3.0.6
+  resolution: "@types/klaw@npm:3.0.6"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: b044d8149b4b4b48e83b0a60a37db1c4f010493dd9c6c7dc210ec223a59d178f01066c6d37861e184b7879a1bd37eea4f030a93aa350c191ce291c38ee8cdaab
+  languageName: node
+  linkType: hard
+
 "@types/minimist@npm:^1.2.0":
   version: 1.2.2
   resolution: "@types/minimist@npm:1.2.2"
@@ -1308,6 +1336,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/through2@npm:^2.0.41":
+  version: 2.0.41
+  resolution: "@types/through2@npm:2.0.41"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: ff5797c14dd1f86ecfab4688f4684cc7021e4faa7e3deef614d9e7e19c3ce2e5e0b592db7286bfd6f5ca6dcc736bc4e15a1d9f7729f3b5ec8ce02ffc90823bc9
+  languageName: node
+  linkType: hard
+
 "@utilz/deepmerge@npm:^0.1.21, @utilz/deepmerge@workspace:packages/deepmerge":
   version: 0.0.0-use.local
   resolution: "@utilz/deepmerge@workspace:packages/deepmerge"
@@ -1339,6 +1376,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@utilz/file@workspace:packages/file"
   dependencies:
+    "@types/fs-extra": "npm:^11.0.4"
+    "@types/klaw": "npm:^3.0.6"
+    "@types/through2": "npm:^2.0.41"
     "@utilz/deepmerge": "npm:^0.1.21"
     "@utilz/types": "npm:^0.1.19"
     fs-extra: "npm:^10.0.0"

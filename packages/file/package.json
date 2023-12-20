@@ -31,6 +31,9 @@
     "through2": "^4.0.2"
   },
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/klaw": "^3.0.6",
+    "@types/through2": "^2.0.41",
     "tsup": "^7.3.0",
     "typescript": "^5.2.2",
     "vitest": "^0.34.6"
