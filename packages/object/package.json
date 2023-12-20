@@ -3,8 +3,8 @@
   "version": "0.1.8",
   "description": "Object utilities",
   "source": "src/index.ts",
-  "main": "dist/object.js",
-  "module": "dist/object.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "license": "MIT",
   "repository": {
@@ -14,22 +14,23 @@
   },
   "homepage": "https://github.com/devdigital/utilz/tree/master/packages/object#readme",
   "scripts": {
-    "prepare": "microbundle --no-compress -o dist",
-    "watch": "microbundle watch --no-compress -o dist",
-    "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "tsup && yarn create-package",
+    "watch": "tsup --watch",
+    "create-package": "mkdir -p ./output && cp -R ./dist/. ./output/dist && cp package.json ./output"
   },
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {
-    "@types/jest": "^26.0.24",
-    "jest": "^27.0.6",
-    "ts-jest": "^27.0.4",
-    "typescript": "^4.3.5"
-  },
   "dependencies": {
-    "@utilz/types": "^0.1.19",
+    "@utilz/types": "workspace:^",
     "ramda": "^0.27.0"
+  },
+  "devDependencies": {
+    "@types/ramda": "^0.29.9",
+    "tsup": "^7.3.0",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
   }
 }

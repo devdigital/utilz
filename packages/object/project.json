@@ -1,0 +1,12 @@
+{
+  "name": "@utilz/object",
+  "targets": {
+    "semantic-release": {
+      "executor": "@theunderscorer/nx-semantic-release:semantic-release",
+      "options": {
+        "buildTarget": "${PROJECT_NAME}:build",
+        "outputPath": "${PROJECT_DIR}/output"
+      }
+    }
+  }
+}
