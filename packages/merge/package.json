@@ -29,7 +29,7 @@
   },
   "gitHead": "fd9c9876a53d5cd4ef6a4fe0deb6e97ae34461cf",
   "dependencies": {
-    "@utilz/types": "^0.1.19"
+    "@utilz/types": "workspace:^"
   },
   "devDependencies": {
     "tsup": "^7.3.0",

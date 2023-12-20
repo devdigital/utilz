@@ -24,8 +24,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@utilz/deepmerge": "^0.1.21",
-    "@utilz/types": "^0.1.19",
+    "@utilz/deepmerge": "workspace:^",
+    "@utilz/types": "workspace:^",
     "lorem-ipsum": "^2.0.3",
     "shortid": "^2.2.16"
   },

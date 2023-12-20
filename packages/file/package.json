@@ -24,8 +24,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@utilz/deepmerge": "^0.1.21",
-    "@utilz/types": "^0.1.19",
+    "@utilz/deepmerge": "workspace:^",
+    "@utilz/types": "workspace:^",
     "fs-extra": "^10.0.0",
     "klaw": "^4.0.1",
     "through2": "^4.0.2"

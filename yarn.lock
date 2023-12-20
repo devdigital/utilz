@@ -1345,11 +1345,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@utilz/deepmerge@npm:^0.1.21, @utilz/deepmerge@workspace:packages/deepmerge":
+"@utilz/deepmerge@workspace:^, @utilz/deepmerge@workspace:packages/deepmerge":
   version: 0.0.0-use.local
   resolution: "@utilz/deepmerge@workspace:packages/deepmerge"
   dependencies:
-    "@utilz/types": "npm:^0.1.19"
+    "@utilz/types": "workspace:^"
     deepmerge: "npm:^4.2.2"
     tsup: "npm:^7.3.0"
     typescript: "npm:^5.2.2"
@@ -1362,8 +1362,8 @@ __metadata:
   resolution: "@utilz/dummy@workspace:packages/dummy"
   dependencies:
     "@types/shortid": "npm:^0.0.32"
-    "@utilz/deepmerge": "npm:^0.1.21"
-    "@utilz/types": "npm:^0.1.19"
+    "@utilz/deepmerge": "workspace:^"
+    "@utilz/types": "workspace:^"
     lorem-ipsum: "npm:^2.0.3"
     shortid: "npm:^2.2.16"
     tsup: "npm:^7.3.0"
@@ -1379,8 +1379,8 @@ __metadata:
     "@types/fs-extra": "npm:^11.0.4"
     "@types/klaw": "npm:^3.0.6"
     "@types/through2": "npm:^2.0.41"
-    "@utilz/deepmerge": "npm:^0.1.21"
-    "@utilz/types": "npm:^0.1.19"
+    "@utilz/deepmerge": "workspace:^"
+    "@utilz/types": "workspace:^"
     fs-extra: "npm:^10.0.0"
     klaw: "npm:^4.0.1"
     through2: "npm:^4.0.2"
@@ -1394,7 +1394,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@utilz/get@workspace:packages/get"
   dependencies:
-    "@utilz/types": "npm:^0.1.19"
+    "@utilz/types": "workspace:^"
     tsup: "npm:^7.3.0"
     typescript: "npm:^5.2.2"
     vitest: "npm:^0.34.6"
@@ -1418,8 +1418,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@utilz/logger@workspace:packages/logger"
   dependencies:
-    "@utilz/deepmerge": "npm:^0.1.21"
-    "@utilz/types": "npm:^0.1.19"
+    "@utilz/deepmerge": "workspace:^"
+    "@utilz/types": "workspace:^"
     chalk: "npm:^4.1.2"
     mockdate: "npm:^3.0.5"
     tsup: "npm:^7.3.0"
@@ -1433,19 +1433,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@utilz/merge@workspace:packages/merge"
   dependencies:
-    "@utilz/types": "npm:^0.1.19"
+    "@utilz/types": "workspace:^"
     tsup: "npm:^7.3.0"
     typescript: "npm:^5.2.2"
     vitest: "npm:^0.34.6"
   languageName: unknown
   linkType: soft
 
-"@utilz/object@npm:^0.1.8, @utilz/object@workspace:packages/object":
+"@utilz/object@workspace:^, @utilz/object@workspace:packages/object":
   version: 0.0.0-use.local
   resolution: "@utilz/object@workspace:packages/object"
   dependencies:
     "@types/ramda": "npm:^0.29.9"
-    "@utilz/types": "npm:^0.1.19"
+    "@utilz/types": "workspace:^"
     ramda: "npm:^0.27.0"
     tsup: "npm:^7.3.0"
     typescript: "npm:^5.2.2"
@@ -1457,8 +1457,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@utilz/tokenizer@workspace:packages/tokenizer"
   dependencies:
-    "@utilz/object": "npm:^0.1.8"
-    "@utilz/types": "npm:^0.1.19"
+    "@utilz/object": "workspace:^"
+    "@utilz/types": "workspace:^"
     ramda: "npm:^0.27.0"
     tsup: "npm:^7.3.0"
     typescript: "npm:^5.2.2"
@@ -1466,7 +1466,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@utilz/types@npm:^0.1.19, @utilz/types@workspace:packages/types":
+"@utilz/types@workspace:^, @utilz/types@workspace:packages/types":
   version: 0.0.0-use.local
   resolution: "@utilz/types@workspace:packages/types"
   dependencies:
