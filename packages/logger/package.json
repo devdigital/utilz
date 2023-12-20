@@ -3,8 +3,8 @@
   "version": "0.1.8",
   "description": "Basic logger.",
   "source": "src/index.ts",
-  "main": "dist/logger.js",
-  "module": "dist/logger.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "license": "MIT",
   "repository": {
@@ -14,28 +14,25 @@
   },
   "homepage": "https://github.com/devdigital/utilz/tree/master/packages/logger#readme",
   "scripts": {
-    "prepare": "microbundle --no-compress -o dist",
-    "watch": "microbundle watch --no-compress -o dist",
-    "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "tsup && yarn create-package",
+    "watch": "tsup --watch",
+    "create-package": "mkdir -p ./output && cp -R ./dist/. ./output/dist && cp package.json ./output"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.14.8",
-    "@babel/preset-env": "^7.14.9",
-    "@types/jest": "^26.0.24",
-    "babel-jest": "^27.0.6",
-    "jest": "^27.0.6",
-    "mockdate": "^3.0.5",
-    "ts-jest": "^27.0.4",
-    "typescript": "^4.3.5"
   },
   "dependencies": {
     "@utilz/deepmerge": "^0.1.21",
     "@utilz/types": "^0.1.19",
     "chalk": "^4.1.2",
     "util": "^0.12.4"
+  },
+  "devDependencies": {
+    "mockdate": "^3.0.5",
+    "tsup": "^7.3.0",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
   }
 }

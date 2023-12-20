@@ -1,2 +1,2 @@
-export * from './deepmerge'
-export * from './configure'
+export * from "./merge";
+export * from "./configure";
