@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/devdigital/utilz/tree/master/packages/github#readme",
   "scripts": {
-    "test": "vitest run",
-    "test:watch": "vitest",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest --passWithNoTests",
     "build": "tsup && yarn create-package",
     "watch": "tsup --watch",
     "create-package": "mkdir -p ./output && cp -R ./dist/. ./output/dist && cp package.json ./output"
