@@ -12,7 +12,7 @@
     "url": "https://github.com/devdigital/utilz.git",
     "directory": "packages/file"
   },
-  "homepage": "https://github.com/devdigital/utilz/tree/master/packages/file#readme",
+  "homepage": "https://github.com/devdigital/utilz/tree/main/packages/file#readme",
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",

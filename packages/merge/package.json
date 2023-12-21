@@ -12,7 +12,7 @@
     "url": "https://github.com/devdigital/utilz.git",
     "directory": "packages/merge"
   },
-  "homepage": "https://github.com/devdigital/utilz/tree/master/packages/merge#readme",
+  "homepage": "https://github.com/devdigital/utilz/tree/main/packages/merge#readme",
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
