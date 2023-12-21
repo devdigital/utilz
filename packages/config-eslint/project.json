@@ -1,0 +1,12 @@
+{
+  "name": "@utilz/config-eslint",
+  "targets": {
+    "semantic-release": {
+      "executor": "@theunderscorer/nx-semantic-release:semantic-release",
+      "options": {
+        "buildTarget": "@utilz/config-eslint:build",
+        "outputPath": "${PROJECT_DIR}/output"
+      }
+    }
+  }
+}
