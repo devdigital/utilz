@@ -1,4 +1,7 @@
 {
   "name": "@utilz/config-prettier",
-  "main": "prettierrc.json"
+  "main": "prettierrc.json",
+  "scripts": {
+    "build": "echo No build"
+  }
 }

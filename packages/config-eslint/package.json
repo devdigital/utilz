@@ -2,6 +2,9 @@
   "name": "@utilz/config-eslint",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "echo No build"
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
