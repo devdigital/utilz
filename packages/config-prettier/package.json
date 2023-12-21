@@ -1,0 +1,4 @@
+{
+  "name": "@utilz/config-prettier",
+  "main": "prettierrc.json"
+}
