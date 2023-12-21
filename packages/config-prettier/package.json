@@ -1,6 +1,12 @@
 {
   "name": "@utilz/config-prettier",
   "main": "prettierrc.json",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devdigital/utilz.git",
+    "directory": "packages/config-prettier"
+  },
+  "homepage": "https://github.com/devdigital/utilz/tree/main/packages/config-prettier#readme",
   "scripts": {
     "build": "echo No build"
   }

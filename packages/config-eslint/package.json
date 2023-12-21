@@ -2,6 +2,12 @@
   "name": "@utilz/config-eslint",
   "main": "index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devdigital/utilz.git",
+    "directory": "packages/config-eslint"
+  },
+  "homepage": "https://github.com/devdigital/utilz/tree/main/packages/config-eslint#readme",
   "scripts": {
     "build": "echo No build"
   },

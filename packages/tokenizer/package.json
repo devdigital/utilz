@@ -12,7 +12,7 @@
     "url": "https://github.com/devdigital/utilz.git",
     "directory": "packages/tokenizer"
   },
-  "homepage": "https://github.com/devdigital/utilz/tree/master/packages/tokenizer#readme",
+  "homepage": "https://github.com/devdigital/utilz/tree/main/packages/tokenizer#readme",
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
