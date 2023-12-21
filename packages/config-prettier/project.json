@@ -5,7 +5,7 @@
       "executor": "@theunderscorer/nx-semantic-release:semantic-release",
       "options": {
         "buildTarget": "@utilz/config-prettier:build",
-        "outputPath": "${PROJECT_DIR}/output"
+        "outputPath": "${PROJECT_DIR}"
       }
     }
   }
