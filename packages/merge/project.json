@@ -1,12 +1,4 @@
 {
   "name": "@utilz/merge",
-  "targets": {
-    "semantic-release": {
-      "executor": "@theunderscorer/nx-semantic-release:semantic-release",
-      "options": {
-        "buildTarget": "${PROJECT_NAME}:build",
-        "outputPath": "${PROJECT_DIR}/output"
-      }
-    }
-  }
+  "$schema": "../../node_modules/nx/schemas/project-schema.json"
 }
