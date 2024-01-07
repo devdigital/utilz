@@ -12,8 +12,6 @@
     "build": "nx run-many --target=build"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.0.0",
-    "@commitlint/config-angular": "^18.0.0",
     "@jscutlery/semver": "^4.2.0",
     "@nx/devkit": "^17.2.8",
     "@tsconfig/node20": "^20.1.2",
