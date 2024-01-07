@@ -9,8 +9,7 @@
   ],
   "scripts": {
     "test": "nx run-many --target=test",
-    "build": "nx run-many --target=build",
-    "prepare": "husky install"
+    "build": "nx run-many --target=build"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.0.0",
@@ -18,7 +17,6 @@
     "@jscutlery/semver": "^4.2.0",
     "@nx/devkit": "^17.2.8",
     "@tsconfig/node20": "^20.1.2",
-    "husky": "^8.0.0",
     "ngx-deploy-npm": "^7.1.0",
     "nx": "17.1.2"
   }
