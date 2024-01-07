@@ -12,7 +12,8 @@
       "executor": "ngx-deploy-npm:deploy",
       "options": {
         "access": "public",
-        "distFolderPath": "."
+        "distFolderPath": "./packages/config-eslint",
+        "noBuild": true
       }
     },
     "git-push": {
