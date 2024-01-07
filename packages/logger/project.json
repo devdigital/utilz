@@ -11,7 +11,9 @@
     "npm-publish": {
       "executor": "ngx-deploy-npm:deploy",
       "options": {
-        "access": "public"
+        "access": "public",
+        "distFolderPath": "./packages/logger",
+        "noBuild": true
       }
     },
     "git-push": {

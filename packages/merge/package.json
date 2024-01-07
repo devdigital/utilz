@@ -24,10 +24,6 @@
     "esm/*",
     "umd/*"
   ],
-  "publishConfig": {
-    "access": "public",
-    "distFolderPath": "."
-  },
   "gitHead": "fd9c9876a53d5cd4ef6a4fe0deb6e97ae34461cf",
   "dependencies": {
     "@utilz/types": "workspace:^"
