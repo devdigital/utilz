@@ -33,7 +33,9 @@ jobs:
         run: yarn test
       - name: Version
         if: github.ref == 'refs/heads/main'
-        run: yarn nx affected --base=last-release --target=version --parallel=1
+        run: |
+          echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+          yarn nx affected --base=last-release --target=version --parallel=1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
