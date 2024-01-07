@@ -4885,6 +4885,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ngx-deploy-npm@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "ngx-deploy-npm@npm:7.1.0"
+  peerDependencies:
+    "@nx/devkit": ^16.0.0 || ^17.0.0 || ^18.0.0
+    tslib: ^2.3.0
+  checksum: c5782674cb43d22d510f2a1ca66ca56bc163a7127582f189b424a1a6fa705d515ecaf7249e2486fd8e97656ed7f6b1ff939ed3f4464e285b5db862211d62f2d7
+  languageName: node
+  linkType: hard
+
 "node-fetch@npm:^2.6.7":
   version: 2.7.0
   resolution: "node-fetch@npm:2.7.0"
@@ -5833,6 +5843,7 @@ __metadata:
     "@nx/devkit": "npm:^17.2.8"
     "@tsconfig/node20": "npm:^20.1.2"
     husky: "npm:^8.0.0"
+    ngx-deploy-npm: "npm:^7.1.0"
     nx: "npm:17.1.2"
   languageName: unknown
   linkType: soft

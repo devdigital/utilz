@@ -19,6 +19,7 @@
     "@nx/devkit": "^17.2.8",
     "@tsconfig/node20": "^20.1.2",
     "husky": "^8.0.0",
+    "ngx-deploy-npm": "^7.1.0",
     "nx": "17.1.2"
   }
 }
