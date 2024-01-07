@@ -12,7 +12,7 @@
       "executor": "ngx-deploy-npm:deploy",
       "options": {
         "access": "public",
-        "distFolderPath": "./dist"
+        "distFolderPath": "."
       }
     },
     "git-push": {

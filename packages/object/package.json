@@ -22,7 +22,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "distFolderPath": "./dist"
+    "distFolderPath": "."
   },
   "dependencies": {
     "@utilz/types": "workspace:^",
