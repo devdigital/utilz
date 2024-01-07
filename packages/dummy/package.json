@@ -21,7 +21,8 @@
     "create-package": "mkdir -p ./output && cp -R ./dist/. ./output/dist && cp package.json ./output"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "distFolderPath": "./dist"
   },
   "dependencies": {
     "@utilz/deepmerge": "workspace:^",

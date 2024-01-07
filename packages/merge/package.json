@@ -25,7 +25,8 @@
     "umd/*"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "distFolderPath": "./dist"
   },
   "gitHead": "fd9c9876a53d5cd4ef6a4fe0deb6e97ae34461cf",
   "dependencies": {
