@@ -31,11 +31,14 @@ jobs:
         run: yarn build
       - name: Run tests
         run: yarn test
-      - name: Release
+      - name: Version
         if: github.ref == 'refs/heads/main'
-        run: |
-          alias npm=yarn
-          yarn release
+        run: yarn nx affected --base=last-release --target=version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Tag last-release
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git tag -f last-release
+          git push origin last-release --force
