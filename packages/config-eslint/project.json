@@ -31,6 +31,10 @@
       "options": {
         "textToEcho": "Hello World!!!"
       }
+    },
+    "deploy": {
+      "executor": "@utilz/nx-yarn-deploy:deploy",
+      "options": {}
     }
   }
 }
