@@ -3547,6 +3547,7 @@ __metadata:
   dependencies:
     "@typescript-eslint/eslint-plugin": "npm:^5.44.0"
     "@typescript-eslint/parser": "npm:^5.44.0"
+    "@utilz/nx-yarn-deploy": "workspace:^"
     eslint-config-prettier: "npm:^9.0.0"
     eslint-import-resolver-typescript: "npm:^3.6.1"
     eslint-plugin-import: "npm:^2.29.0"
@@ -3653,6 +3654,14 @@ __metadata:
     tsup: "npm:^7.3.0"
     typescript: "npm:^5.2.2"
     vitest: "npm:^0.34.6"
+  languageName: unknown
+  linkType: soft
+
+"@utilz/nx-yarn-deploy@workspace:^, @utilz/nx-yarn-deploy@workspace:packages/nx-yarn-deploy":
+  version: 0.0.0-use.local
+  resolution: "@utilz/nx-yarn-deploy@workspace:packages/nx-yarn-deploy"
+  dependencies:
+    tslib: "npm:^2.3.0"
   languageName: unknown
   linkType: soft
 
@@ -8931,14 +8940,6 @@ __metadata:
   checksum: 44be198adae99208487a1c886c0a3712264f7bbafa44368ad96c003512fed2753d4e22890ca1e6edb2690c3456a169f2a3c33bfacde1905cf3bf01c7722464db
   languageName: node
   linkType: hard
-
-"nx-yarn-deploy@workspace:packages/nx-yarn-deploy":
-  version: 0.0.0-use.local
-  resolution: "nx-yarn-deploy@workspace:packages/nx-yarn-deploy"
-  dependencies:
-    tslib: "npm:^2.3.0"
-  languageName: unknown
-  linkType: soft
 
 "nx@npm:17.1.2":
   version: 17.1.2

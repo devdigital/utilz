@@ -2,7 +2,7 @@
   "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@utilz/nx-yarn-deploy": ["packages/nx-yarn-deploy/src/index.ts"]
+      "@utilz/nx-yarn-deploy": ["./packages/nx-yarn-deploy/src/index.ts"]
     }
   }
 }
