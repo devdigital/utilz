@@ -25,6 +25,12 @@
         "tag": "{tag}",
         "notes": "{notes}"
       }
+    },
+    "echo": {
+      "executor": "@utilz/nx-yarn-deploy:echo",
+      "options": {
+        "textToEcho": "Hello World!!!"
+      }
     }
   }
 }
