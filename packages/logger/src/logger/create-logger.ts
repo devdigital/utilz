@@ -1,7 +1,7 @@
 import { deepmerge } from "@utilz/deepmerge";
 import { Nullish } from "@utilz/types";
-import { defaultLog } from "./default-log";
-import { LogLevel, LoggerOptions } from "./types";
+import { defaultLog } from "./default-log.js";
+import { LogLevel, LoggerOptions } from "./types.js";
 
 const logLevels: Record<string, number> = {
   [LogLevel.TRACE]: 10,

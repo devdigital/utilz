@@ -21,8 +21,8 @@
     "create-package": "mkdir -p ./output && cp -R ./dist/. ./output/dist && cp package.json ./output"
   },
   "devDependencies": {
-    "tsup": "^7.3.0",
-    "typescript": "^5.2.2",
-    "vitest": "^0.34.6"
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.3"
   }
 }
