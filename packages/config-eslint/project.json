@@ -5,7 +5,12 @@
     "version": {
       "executor": "@jscutlery/semver:version",
       "options": {
-        "postTargets": ["npm-publish", "git-push", "github-release"]
+        "postTargets": [
+          "npm-publish",
+          "git-version",
+          "git-push",
+          "github-release"
+        ]
       }
     },
     "npm-publish": {
@@ -15,6 +20,9 @@
         "access": "public"
       }
     },
+    "git-version": {
+      "command": "git --version"
+    },
     "git-push": {
       "command": "git push --atomic --follow-tags"
     },
@@ -23,12 +31,6 @@
       "options": {
         "tag": "{tag}",
         "notes": "{notes}"
-      }
-    },
-    "echo": {
-      "executor": "@utilz/nx-yarn-deploy:echo",
-      "options": {
-        "textToEcho": "Hello World!!!"
       }
     }
   }
