@@ -37,27 +37,18 @@ export default async function runExecutor(
       cwd: projectFolder,
     });
 
-    if (publishStderr) {
-      logError(publishStderr);
-      return { success: false };
-    }
-
-    log('Release', publishStdout);
+    log('Release', { stdout: publishStdout, stderr: publishStderr });
 
     const gitPushCommand = `git push --atomic --follow-tags`;
 
+    // Git writes to stderr even when there is no error
     const { stdout: gitPushStdout, stderr: gitPushStderr } = await promisify(
       exec
     )(gitPushCommand, {
       cwd: projectFolder,
     });
 
-    if (gitPushStderr) {
-      logError(gitPushStderr);
-      return { success: false };
-    }
-
-    log('Git push', gitPushStdout);
+    log('Git push', { stdout: gitPushStdout, stderr: gitPushStderr });
 
     return { success: true };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
