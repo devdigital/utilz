@@ -16,9 +16,8 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "build": "tsup && yarn create-package",
-    "watch": "tsup --watch",
-    "create-package": "mkdir -p ./output && cp -R ./dist/. ./output/dist && cp package.json ./output"
+    "build": "tsup",
+    "watch": "tsup --watch"
   },
   "dependencies": {
     "@utilz/deepmerge": "workspace:^",
