@@ -8,6 +8,11 @@
     "projectFolderPath": {
       "type": "string",
       "description": "The project folder path, relative to the repository root."
+    },
+    "access": {
+      "type": "string",
+      "description": "The access level of the package.",
+      "enum": ["public", "restricted"]
     }
   },
   "required": ["projectFolderPath"]

@@ -27,7 +27,11 @@ export default async function runExecutor(
   log('Running yarn npm publish', { projectFolder });
 
   try {
-    const { stdout, stderr } = await promisify(exec)(`yarn npm publish`, {
+    const publishCommand = `yarn npm publish --access ${
+      options.access ?? 'restricted'
+    }`;
+
+    const { stdout, stderr } = await promisify(exec)(publishCommand, {
       cwd: projectFolder,
     });
 
