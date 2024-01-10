@@ -1,6 +1,6 @@
 {
   "name": "@utilz/dummy",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Dummy content generator",
   "source": "src/index.ts",
   "main": "dist/index.js",
