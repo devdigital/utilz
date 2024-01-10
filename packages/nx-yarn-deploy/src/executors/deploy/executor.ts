@@ -13,7 +13,7 @@ function log(message: string, data?: unknown) {
 }
 
 function logError(message: string) {
-  console.error('Nx Yarn Deploy Executor:', message);
+  console.error('Nx Yarn Deploy Executor Error:', message);
 }
 
 export default async function runExecutor(
