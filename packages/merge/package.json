@@ -1,6 +1,6 @@
 {
   "name": "@utilz/merge",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Node merge utility",
   "source": "src/index.ts",
   "main": "dist/index.js",
