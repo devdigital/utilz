@@ -19,6 +19,9 @@
     "build": "tsup",
     "watch": "tsup --watch"
   },
+  "files": [
+    "/dist/**/*"
+  ],
   "dependencies": {
     "@utilz/types": "workspace:^",
     "ramda": "^0.29.1"
