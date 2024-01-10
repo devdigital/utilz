@@ -11,7 +11,7 @@
     "npm-publish": {
       "executor": "@utilz/nx-yarn-deploy:deploy",
       "options": {
-        "projectFolderPath": "./packages/config-eslint",
+        "projectFolderPath": "./packages/config-prettier",
         "access": "public"
       }
     },

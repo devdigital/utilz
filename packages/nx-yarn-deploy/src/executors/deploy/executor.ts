@@ -22,7 +22,7 @@ export default async function runExecutor(
 ) {
   log('Received options', options);
 
-  const projectFolder = path.resolve(context.root, options.projectFolderPath);
+  const projectFolder = path.join(context.root, options.projectFolderPath);
 
   log('Running yarn npm publish', { projectFolder });
 
