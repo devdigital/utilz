@@ -3623,7 +3623,7 @@ __metadata:
   resolution: "@utilz/github@workspace:packages/github"
   dependencies:
     "@octokit/rest": "npm:^18.12.0"
-    axios: "npm:^0.26.1"
+    axios: "npm:^1.6.0"
     cheerio: "npm:^1.0.0-rc.10"
     tsup: "npm:^7.3.0"
     typescript: "npm:^5.2.2"
@@ -4124,16 +4124,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.26.1":
-  version: 0.26.1
-  resolution: "axios@npm:0.26.1"
-  dependencies:
-    follow-redirects: "npm:^1.14.8"
-  checksum: 77ad7f1e6ca04fcd3fa8af1795b09d8b7c005b71a31f28d99ba40cda0bdcc12a4627801d7fac5efa62b9f667a8402bd54c669039694373bc8d44f6be611f785c
-  languageName: node
-  linkType: hard
-
-"axios@npm:^1.5.1":
+"axios@npm:^1.5.1, axios@npm:^1.6.0":
   version: 1.6.5
   resolution: "axios@npm:1.6.5"
   dependencies:
@@ -6314,7 +6305,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.8, follow-redirects@npm:^1.15.4":
+"follow-redirects@npm:^1.15.4":
   version: 1.15.4
   resolution: "follow-redirects@npm:1.15.4"
   peerDependenciesMeta:
