@@ -9,11 +9,10 @@
       }
     },
     "npm-publish": {
-      "executor": "ngx-deploy-npm:deploy",
+      "executor": "@utilz/nx-yarn-deploy:deploy",
       "options": {
-        "access": "public",
-        "distFolderPath": "./packages/deepmerge",
-        "noBuild": true
+        "projectFolderPath": "./packages/config-eslint",
+        "access": "public"
       }
     },
     "git-push": {
