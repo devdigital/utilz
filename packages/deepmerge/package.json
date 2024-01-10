@@ -1,6 +1,6 @@
 {
   "name": "@utilz/deepmerge",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Node deep merge utility",
   "source": "src/index.ts",
   "main": "dist/index.js",
