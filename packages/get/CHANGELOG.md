@@ -2,6 +2,10 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.3.2](https://github.com/devdigital/utilz/compare/@utilz/get-0.3.1...@utilz/get-0.3.2) (2024-01-10)
+
+
+
 ## [0.3.1](https://github.com/devdigital/utilz/compare/@utilz/get-0.3.0...@utilz/get-0.3.1) (2024-01-10)
 
 
