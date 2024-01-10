@@ -21,13 +21,13 @@
     "create-package": "mkdir -p ./output && cp -R ./dist/. ./output/dist && cp package.json ./output"
   },
   "dependencies": {
-    "@octokit/rest": "^18.12.0",
+    "@octokit/rest": "^20.0.2",
     "axios": "^1.6.5",
-    "cheerio": "^1.0.0-rc.10"
+    "cheerio": "^1.0.0-rc.12"
   },
   "devDependencies": {
-    "tsup": "^7.3.0",
-    "typescript": "^5.2.2",
-    "vitest": "^0.34.6"
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.3"
   }
 }

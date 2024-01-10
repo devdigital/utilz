@@ -1,4 +1,4 @@
-import { LogParameters } from './types'
+import { LogParameters } from './types.js'
 
 const errorToParams = (error: Error) => ({
   errorName: error.name,

@@ -2,7 +2,7 @@ import chalk from "chalk";
 import util from "util";
 import { deepmerge } from "@utilz/deepmerge";
 import { isNil, isFunction, isObject, Nullish } from "@utilz/types";
-import { LogLevel, LogParameters } from "../logger/types";
+import { LogLevel, LogParameters } from "../logger/types.js";
 
 const isEmptyObject = (obj: Object) =>
   Object.keys(obj).length === 0 && obj.constructor === Object;

@@ -1,2 +1,2 @@
-export * from './logger'
-export * from './console-log'
+export * from './logger/index.js'
+export * from './console-log/index.js'
