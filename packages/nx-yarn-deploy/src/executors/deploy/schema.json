@@ -4,6 +4,11 @@
   "title": "Nx yarn deploy executor",
   "description": "",
   "type": "object",
-  "properties": {},
-  "required": []
+  "properties": {
+    "projectFolderPath": {
+      "type": "string",
+      "description": "The project folder path, relative to the repository root."
+    }
+  },
+  "required": ["projectFolderPath"]
 }
