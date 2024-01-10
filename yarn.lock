@@ -6395,12 +6395,12 @@ __metadata:
   linkType: hard
 
 "follow-redirects@npm:^1.14.8, follow-redirects@npm:^1.15.0":
-  version: 1.15.3
-  resolution: "follow-redirects@npm:1.15.3"
+  version: 1.15.4
+  resolution: "follow-redirects@npm:1.15.4"
   peerDependenciesMeta:
     debug:
       optional: true
-  checksum: 915a2cf22e667bdf47b1a43cc6b7dce14d95039e9bbf9a24d0e739abfbdfa00077dd43c86d4a7a19efefcc7a99af144920a175eedc3888d268af5df67c272ee5
+  checksum: 5f37ed9170c9eb19448c5418fdb0f2b73f644b5364834e70791a76ecc7db215246f9773bbef4852cfae4067764ffc852e047f744b661b0211532155b73556a6a
   languageName: node
   linkType: hard
 
@@ -8785,16 +8785,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ngx-deploy-npm@npm:^7.1.0":
-  version: 7.1.0
-  resolution: "ngx-deploy-npm@npm:7.1.0"
-  peerDependencies:
-    "@nx/devkit": ^16.0.0 || ^17.0.0 || ^18.0.0
-    tslib: ^2.3.0
-  checksum: c5782674cb43d22d510f2a1ca66ca56bc163a7127582f189b424a1a6fa705d515ecaf7249e2486fd8e97656ed7f6b1ff939ed3f4464e285b5db862211d62f2d7
-  languageName: node
-  linkType: hard
-
 "node-fetch@npm:^2.6.7":
   version: 2.7.0
   resolution: "node-fetch@npm:2.7.0"
@@ -10076,7 +10066,6 @@ __metadata:
     eslint-config-prettier: "npm:^9.0.0"
     jest: "npm:^29.4.1"
     jest-environment-jsdom: "npm:^29.4.1"
-    ngx-deploy-npm: "npm:^7.1.0"
     nx: "npm:17.1.2"
     prettier: "npm:^2.6.2"
     ts-jest: "npm:^29.1.0"
