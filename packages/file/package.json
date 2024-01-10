@@ -19,6 +19,9 @@
     "build": "tsup",
     "watch": "tsup --watch"
   },
+  "files": [
+    "/dist/**/*"
+  ],
   "dependencies": {
     "@utilz/deepmerge": "workspace:^",
     "@utilz/types": "workspace:^",

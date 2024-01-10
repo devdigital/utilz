@@ -19,6 +19,9 @@
     "build": "tsup",
     "watch": "tsup --watch"
   },
+  "files": [
+    "/dist/**/*"
+  ],
   "dependencies": {
     "@octokit/rest": "^20.0.2",
     "axios": "^1.6.5",

@@ -19,6 +19,9 @@
     "build": "tsup",
     "watch": "tsup --watch"
   },
+  "files": [
+    "/dist/**/*"
+  ],
   "devDependencies": {
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",

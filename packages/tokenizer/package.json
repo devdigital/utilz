@@ -19,6 +19,9 @@
     "build": "tsup",
     "watch": "tsup --watch"
   },
+  "files": [
+    "/dist/**/*"
+  ],
   "dependencies": {
     "@utilz/object": "workspace:^",
     "@utilz/types": "workspace:^",
