@@ -31,8 +31,12 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Build
         run: yarn build
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Run tests
         run: yarn test
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Version
         if: github.ref == 'refs/heads/main'
         run: yarn nx affected --base=last-release --target=version --parallel=1
