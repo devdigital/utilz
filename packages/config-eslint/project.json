@@ -5,12 +5,7 @@
     "version": {
       "executor": "@jscutlery/semver:version",
       "options": {
-        "postTargets": [
-          "npm-publish",
-          "git-version",
-          "git-push",
-          "github-release"
-        ]
+        "postTargets": ["npm-publish", "git-push", "github-release"]
       }
     },
     "npm-publish": {
@@ -20,11 +15,11 @@
         "access": "public"
       }
     },
-    "git-version": {
-      "command": "git --version"
-    },
     "git-push": {
-      "command": "git push --atomic --follow-tags"
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "git push --atomic --follow-tags"
+      }
     },
     "github-release": {
       "executor": "@jscutlery/semver:github",
