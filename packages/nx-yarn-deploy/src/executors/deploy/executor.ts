@@ -31,16 +31,33 @@ export default async function runExecutor(
       options.access ?? 'restricted'
     }`;
 
-    const { stdout, stderr } = await promisify(exec)(publishCommand, {
+    const { stdout: publishStdout, stderr: publishStderr } = await promisify(
+      exec
+    )(publishCommand, {
       cwd: projectFolder,
     });
 
-    if (stderr) {
-      logError(stderr);
+    if (publishStderr) {
+      logError(publishStderr);
       return { success: false };
     }
 
-    log('Release', stdout);
+    log('Release', publishStdout);
+
+    const gitPushCommand = `git push --atomic --follow-tags`;
+
+    const { stdout: gitPushStdout, stderr: gitPushStderr } = await promisify(
+      exec
+    )(gitPushCommand, {
+      cwd: projectFolder,
+    });
+
+    if (gitPushStderr) {
+      logError(gitPushStderr);
+      return { success: false };
+    }
+
+    log('Git push', gitPushStdout);
 
     return { success: true };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
