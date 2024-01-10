@@ -1,6 +1,6 @@
 {
   "name": "@utilz/logger",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "Basic logger.",
   "source": "src/index.ts",
   "main": "dist/index.js",
