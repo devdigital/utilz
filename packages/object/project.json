@@ -16,7 +16,10 @@
       }
     },
     "git-push": {
-      "command": "git push --atomic --follow-tags"
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "git push --atomic --follow-tags"
+      }
     },
     "github-release": {
       "executor": "@jscutlery/semver:github",
